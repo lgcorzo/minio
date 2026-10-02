@@ -65,11 +65,11 @@ export MC_HOST_mytier="http://minioadmin:minioadmin@localhost:9002/"
 
 ## mirror some content to bucket2 and capture versions tiered
 ./mc mirror internal myminio/bucket2/ --quiet >/dev/null
-./mc ls -r myminio/bucket2/ | sort >bucket2_ns.txt
-./mc ls -r --versions myminio/bucket2/ | sort >bucket2_ns_versions.txt
 
 sleep 30
 
+./mc ls -r myminio/bucket2/ | sort >bucket2_ns.txt
+./mc ls -r --versions myminio/bucket2/ | sort >bucket2_ns_versions.txt
 ./mc ls -r --versions mytier/tiered/ >tiered_ns_versions.txt
 
 kill $pid
