@@ -70,5 +70,5 @@ RUN chmod +x /usr/bin/docker-entrypoint.sh
 EXPOSE 9000 9443
 VOLUME ["/data"]
 
-ENTRYPOINT ["/opt/bin/minio"]
-CMD ["server"]
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
+CMD ["minio"]
