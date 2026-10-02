@@ -9,8 +9,9 @@ rm -rf /tmp/xl
 rm -rf /tmp/xltier
 
 if [ ! -f ./mc ]; then
-	wget --quiet -O mc https://dl.minio.io/client/mc/release/linux-amd64/mc &&
-		chmod +x mc
+	if command -v mc &>/dev/null; then
+		cp "$(command -v mc)" ./mc
+	fi
 fi
 
 export CI=true
@@ -53,6 +54,7 @@ policy_count=$(./mc admin policy list myminio/ | wc -l)
 export MC_HOST_mytier="http://minioadmin:minioadmin@localhost:9002/"
 
 ./mc ready myminio
+./mc ready mytier
 
 ./mc mb -l myminio/bucket2
 ./mc mb -l mytier/tiered
@@ -63,8 +65,8 @@ export MC_HOST_mytier="http://minioadmin:minioadmin@localhost:9002/"
 
 ## mirror some content to bucket2 and capture versions tiered
 ./mc mirror internal myminio/bucket2/ --quiet >/dev/null
-./mc ls -r myminio/bucket2/ >bucket2_ns.txt
-./mc ls -r --versions myminio/bucket2/ >bucket2_ns_versions.txt
+./mc ls -r myminio/bucket2/ | sort >bucket2_ns.txt
+./mc ls -r --versions myminio/bucket2/ | sort >bucket2_ns_versions.txt
 
 sleep 30
 
@@ -181,18 +183,18 @@ if [ $ret -ne 0 ]; then
 	exit 1
 fi
 
-./mc ls -r myminio/bucket2 >decommissioned_bucket2_ns.txt
-./mc ls -r --versions myminio/bucket2 >decommissioned_bucket2_ns_versions.txt
+./mc ls -r myminio/bucket2/ | sort >decommissioned_bucket2_ns.txt
+./mc ls -r --versions myminio/bucket2/ | sort >decommissioned_bucket2_ns_versions.txt
 ./mc ls -r --versions mytier/tiered/ >tiered_ns_versions2.txt
 
-out=$(diff -qpruN bucket2_ns.txt decommissioned_bucket2_ns.txt)
+out=$(diff -u bucket2_ns.txt decommissioned_bucket2_ns.txt)
 ret=$?
 if [ $ret -ne 0 ]; then
 	echo "BUG: expected no missing entries after decommission in bucket2: $out"
 	exit 1
 fi
 
-out=$(diff -qpruN bucket2_ns_versions.txt decommissioned_bucket2_ns_versions.txt)
+out=$(diff -u bucket2_ns_versions.txt decommissioned_bucket2_ns_versions.txt)
 ret=$?
 if [ $ret -ne 0 ]; then
 	echo "BUG: expected no missing entries after decommission in bucket2x: $out"

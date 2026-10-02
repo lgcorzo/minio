@@ -279,15 +279,15 @@ function induce_bitrot() {
 	UUID=$(echo $UUID | cut -d " " -f 9 | cut -d "/" -f 6)
 
 	# Determine head and tail size of file where we will introduce bitrot
-	FILE_SIZE=$(docker exec resiliency-minio$NODE-1 /bin/sh -c "stat --printf="%s" $DIR/test-bucket/initial-data/$FILE/$UUID/part.1")
+	FILE_SIZE=$(docker exec resiliency-minio$NODE-1 /bin/sh -c "stat -c %s $DIR/test-bucket/initial-data/$FILE/$UUID/part.1")
 	TAIL_SIZE=$((FILE_SIZE - 32 * 2))
 
 	# Extract head and tail of file
-	$(docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/initial-data/$FILE/$UUID/part.1 | head --bytes 32 > /tmp/head")
-	$(docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/initial-data/$FILE/$UUID/part.1 | tail --bytes $TAIL_SIZE > /tmp/tail")
+	docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/initial-data/$FILE/$UUID/part.1 | head -c 32 > /tmp/head"
+	docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/initial-data/$FILE/$UUID/part.1 | tail -c $TAIL_SIZE > /tmp/tail"
 
 	# Corrupt the part by writing head twice followed by tail
-	$(docker exec resiliency-minio$NODE-1 /bin/sh -c "cat /tmp/head /tmp/head /tmp/tail > $DIR/test-bucket/initial-data/$FILE/$UUID/part.1")
+	docker exec resiliency-minio$NODE-1 /bin/sh -c "cat /tmp/head /tmp/head /tmp/tail > $DIR/test-bucket/initial-data/$FILE/$UUID/part.1"
 }
 
 function test_resiliency_healing_induced_bitrot() {
@@ -338,15 +338,15 @@ function induce_bitrot_for_xlmeta() {
 	local FILE=$3
 
 	# Determine head and tail size of file where we will introduce bitrot
-	FILE_SIZE=$(docker exec resiliency-minio$NODE-1 /bin/sh -c "stat --printf="%s" $DIR/test-bucket/inlined-data/$FILE/xl.meta")
+	FILE_SIZE=$(docker exec resiliency-minio$NODE-1 /bin/sh -c "stat -c %s $DIR/test-bucket/inlined-data/$FILE/xl.meta")
 	HEAD_SIZE=$((FILE_SIZE - 32 * 2))
 
 	# Extract head and tail of file
-	$(docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/inlined-data/$FILE/xl.meta | head --bytes $HEAD_SIZE > /head")
-	$(docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/inlined-data/$FILE/xl.meta | tail --bytes 32 > /tail")
+	docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/inlined-data/$FILE/xl.meta | head -c $HEAD_SIZE > /tmp/head"
+	docker exec resiliency-minio$NODE-1 /bin/sh -c "cat $DIR/test-bucket/inlined-data/$FILE/xl.meta | tail -c 32 > /tmp/tail"
 
 	# Corrupt xl.meta by writing head followed by tail twice
-	$(docker exec resiliency-minio$NODE-1 /bin/sh -c "cat /head /tail tmp/tail > $DIR/test-bucket/inlined-data/$FILE/xl.meta")
+	docker exec resiliency-minio$NODE-1 /bin/sh -c "cat /tmp/head /tmp/tail /tmp/tail > $DIR/test-bucket/inlined-data/$FILE/xl.meta"
 }
 
 function test_resiliency_healing_inlined_metadata() {
