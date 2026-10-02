@@ -3,13 +3,12 @@
 
 # If command starts with an option or is a minio subcommand, prepend minio.
 case "${1}" in
-	minio | mc | sh | bash | /bin/sh | /bin/bash | curl)
-		;;
-	*)
-		if [ -n "${1}" ]; then
-			set -- minio "$@"
-		fi
-		;;
+minio | mc | sh | bash | /bin/sh | /bin/bash | curl) ;;
+*)
+	if [ -n "${1}" ]; then
+		set -- minio "$@"
+	fi
+	;;
 esac
 
 docker_switch_user() {
