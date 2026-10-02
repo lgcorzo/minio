@@ -21,6 +21,7 @@ x-minio-common: &minio-common
 services:
   minio1:
     <<: *minio-common
+    container_name: resiliency-minio1-1
     hostname: minio1
     volumes:
       - data1-1:/data1
@@ -34,6 +35,7 @@ services:
 
   minio2:
     <<: *minio-common
+    container_name: resiliency-minio2-1
     hostname: minio2
     volumes:
       - data2-1:/data1
@@ -47,6 +49,7 @@ services:
 
   minio3:
     <<: *minio-common
+    container_name: resiliency-minio3-1
     hostname: minio3
     volumes:
       - data3-1:/data1
@@ -60,6 +63,7 @@ services:
 
   minio4:
     <<: *minio-common
+    container_name: resiliency-minio4-1
     hostname: minio4
     volumes:
       - data4-1:/data1
@@ -72,6 +76,7 @@ services:
       - data4-8:/data8
 
   nginx:
+    container_name: resiliency-nginx-1
     image: nginx:1.19.2-alpine
     hostname: nginx
     volumes:

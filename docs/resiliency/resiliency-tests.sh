@@ -4,7 +4,7 @@ TESTS_RUN_STATUS=1
 
 function cleanup() {
 	echo "Cleaning up MinIO deployment"
-	docker compose -f "${DOCKER_COMPOSE_FILE}" down --volumes
+	docker compose -p resiliency -f "${DOCKER_COMPOSE_FILE}" down --volumes
 	for container in $(docker ps -q); do
 		echo Removing docker $container
 		docker rm -f $container >/dev/null 2>&1
@@ -403,7 +403,7 @@ function main() {
 	cleanup_and_prune
 
 	# Run resiliency tests against MinIO
-	docker compose -f "${DOCKER_COMPOSE_FILE}" up -d
+	docker compose -p resiliency -f "${DOCKER_COMPOSE_FILE}" up -d
 
 	# Initial setup
 	docs/resiliency/resiliency-initial-script.sh
