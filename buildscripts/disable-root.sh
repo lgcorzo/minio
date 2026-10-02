@@ -25,8 +25,15 @@ done
 sleep 10s
 
 if [ ! -f ./mc ]; then
-	wget --quiet -O ./mc https://dl.minio.io/client/mc/release/linux-amd64/./mc &&
-		chmod +x mc
+	if which mc >/dev/null 2>&1; then
+		cp "$(which mc)" ./mc
+	elif [ -f /tmp/mc ]; then
+		cp /tmp/mc ./mc
+	else
+		go install github.com/minio/mc@master
+		cp "$(go env GOPATH)/bin/mc" ./mc
+	fi
+	chmod +x ./mc
 fi
 
 set +e

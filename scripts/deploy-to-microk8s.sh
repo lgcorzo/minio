@@ -22,23 +22,23 @@ echo "=========================================="
 docker build -t "${FULL_IMAGE}" -t "${IMAGE_NAME}:${TAG}" .
 
 if [ "${MODE}" = "registry" ]; then
-    echo "Pushing image to MicroK8s built-in registry (${LOCAL_REGISTRY})..."
-    docker push "${FULL_IMAGE}"
-    echo ""
-    echo "Image successfully pushed to MicroK8s registry: ${FULL_IMAGE}"
-    echo "In your Kubernetes manifests (e.g. Tenant or Deployment), configure:"
-    echo "  image: ${FULL_IMAGE}"
+	echo "Pushing image to MicroK8s built-in registry (${LOCAL_REGISTRY})..."
+	docker push "${FULL_IMAGE}"
+	echo ""
+	echo "Image successfully pushed to MicroK8s registry: ${FULL_IMAGE}"
+	echo "In your Kubernetes manifests (e.g. Tenant or Deployment), configure:"
+	echo "  image: ${FULL_IMAGE}"
 elif [ "${MODE}" = "import" ]; then
-    echo "Importing image directly into MicroK8s containerd..."
-    docker save "${IMAGE_NAME}:${TAG}" | microk8s ctr image import -
-    echo ""
-    echo "Image imported into MicroK8s containerd: ${IMAGE_NAME}:${TAG}"
-    echo "In your Kubernetes manifests (e.g. Tenant or Deployment), configure:"
-    echo "  image: ${IMAGE_NAME}:${TAG}"
-    echo "  imagePullPolicy: IfNotPresent"
+	echo "Importing image directly into MicroK8s containerd..."
+	docker save "${IMAGE_NAME}:${TAG}" | microk8s ctr image import -
+	echo ""
+	echo "Image imported into MicroK8s containerd: ${IMAGE_NAME}:${TAG}"
+	echo "In your Kubernetes manifests (e.g. Tenant or Deployment), configure:"
+	echo "  image: ${IMAGE_NAME}:${TAG}"
+	echo "  imagePullPolicy: IfNotPresent"
 else
-    echo "Unknown mode: ${MODE}. Supported modes: 'registry' or 'import'"
-    exit 1
+	echo "Unknown mode: ${MODE}. Supported modes: 'registry' or 'import'"
+	exit 1
 fi
 
 echo "Done!"
