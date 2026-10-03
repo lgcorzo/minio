@@ -94,18 +94,29 @@ function test_minio_with_timeout() {
 		purge "${MC_BUILD_DIR}"
 	fi
 
-	"${MINIO[@]}" --address ":$start_port" --read-header-timeout ${srv_hdr_timeout}s --idle-timeout ${srv_idle_timeout}s "${WORK_DIR}/disk/" >"${WORK_DIR}/server1.log" 2>&1 &
-	pid=$!
-	disown $pid
-	sleep 1
+	for attempt in 1 2 3; do
+		"${MINIO[@]}" --address ":$start_port" --read-header-timeout ${srv_hdr_timeout}s --idle-timeout ${srv_idle_timeout}s "${WORK_DIR}/disk/" >"${WORK_DIR}/server1.log" 2>&1 &
+		pid=$!
+		disown $pid
+		sleep 1
 
-	if ! ps -p ${pid} 1>&2 >/dev/null; then
+		if ps -p ${pid} 1>&2 >/dev/null; then
+			break
+		fi
+
+		if grep -q "address/port" "${WORK_DIR}/server1.log" && [ $attempt -lt 3 ]; then
+			start_port=$(shuf -i 10000-65000 -n 1)
+			export MC_HOST_minio="http://minio:minio123@127.0.0.1:${start_port}/"
+			sleep 1
+			continue
+		fi
+
 		echo "server1 log:"
 		cat "${WORK_DIR}/server1.log"
 		echo "FAILED"
 		purge "$WORK_DIR"
 		exit 1
-	fi
+	done
 
 	set -e
 
