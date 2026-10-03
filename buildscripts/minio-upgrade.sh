@@ -18,8 +18,10 @@ cleanup() {
 
 	docker volume prune -f
 	docker system prune -f || true
-	docker volume prune -f || true
-	docker volume rm $(docker volume ls -q -f dangling=true) || true
+	vols=$(docker volume ls -q -f dangling=true)
+	if [ -n "${vols}" ]; then
+		docker volume rm ${vols} || true
+	fi
 }
 
 verify_checksum_after_heal() {
