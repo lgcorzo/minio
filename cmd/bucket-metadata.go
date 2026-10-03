@@ -504,22 +504,16 @@ func (b *BucketMetadata) Save(ctx context.Context, api ObjectLayer) error {
 		return err
 	}
 
-	const maxBucketMetadataSize = 50 * 1024 * 1024 // 50MB
-	sz := b.Msgsize()
-	if sz < 0 || sz > maxBucketMetadataSize {
-		return errInvalidArgument
-	}
-	data := make([]byte, 4, sz+4)
-
-	// Initialize the header.
-	binary.LittleEndian.PutUint16(data[0:2], bucketMetadataFormat)
-	binary.LittleEndian.PutUint16(data[2:4], bucketMetadataVersion)
-
-	// Marshal the bucket metadata
-	data, err := b.MarshalMsg(data)
+	payload, err := b.MarshalMsg(nil)
 	if err != nil {
 		return err
 	}
+
+	header := make([]byte, 4)
+	binary.LittleEndian.PutUint16(header[0:2], bucketMetadataFormat)
+	binary.LittleEndian.PutUint16(header[2:4], bucketMetadataVersion)
+
+	data := append(header, payload...)
 
 	configFile := path.Join(bucketMetaPrefix, b.Name, bucketMetadataFile)
 	return saveConfig(ctx, api, configFile, data)
