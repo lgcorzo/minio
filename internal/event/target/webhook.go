@@ -33,13 +33,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/minio/minio/internal/event"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/minio/internal/once"
-	"github.com/minio/minio/internal/store"
-	"github.com/minio/pkg/v3/certs"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/minio/internal/event"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/minio/internal/once"
+	"github.com/lgcorzo/minio/internal/store"
+	"github.com/lgcorzo/pkg/v3/certs"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 // Webhook constants

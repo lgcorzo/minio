@@ -21,8 +21,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 // Batch job environment variables

@@ -20,9 +20,9 @@ package cmd
 import (
 	"net/http"
 
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // Data types used for returning dummy tagging XML.

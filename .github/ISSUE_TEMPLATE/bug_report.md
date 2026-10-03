@@ -9,7 +9,7 @@ assignees: ''
 
 ## IMPORTANT NOTES
 
-**Community Edition**: MinIO community edition is now source-only. Install via `go install github.com/minio/minio@latest`
+**Community Edition**: MinIO community edition is now source-only. Install via `go install github.com/lgcorzo/minio@latest`
 
 **Feature Requests**: We are no longer accepting feature requests for the community edition. For feature requests and enterprise support, please subscribe to [MinIO Enterprise Support](https://min.io/pricing).
 
@@ -32,7 +32,7 @@ assignees: ''
 ## Steps to Reproduce (for bugs)
 <!--- Provide a link to a live example, or an unambiguous set of steps to -->
 <!--- reproduce this bug. Include code to reproduce, if relevant -->
-<!--- and make sure you have followed https://github.com/minio/minio/tree/release/docs/debugging to capture relevant logs -->
+<!--- and make sure you have followed https://github.com/lgcorzo/minio/tree/release/docs/debugging to capture relevant logs -->
 
 1.
 2.

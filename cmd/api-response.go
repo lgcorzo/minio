@@ -29,14 +29,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/minio/minio/internal/amztime"
-	"github.com/minio/minio/internal/crypto"
-	"github.com/minio/minio/internal/handlers"
-	"github.com/minio/minio/internal/hash"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/pkg/v3/policy"
-	xxml "github.com/minio/xxml"
+	"github.com/lgcorzo/minio/internal/amztime"
+	"github.com/lgcorzo/minio/internal/crypto"
+	"github.com/lgcorzo/minio/internal/handlers"
+	"github.com/lgcorzo/minio/internal/hash"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/pkg/v3/policy"
+	xxml "github.com/lgcorzo/xxml"
 )
 
 const (
@@ -890,7 +890,7 @@ func generateMultiDeleteResponse(quiet bool, deletedObjects []DeletedObject, err
 
 func writeResponse(w http.ResponseWriter, statusCode int, response []byte, mType mimeType) {
 	// Don't write a response if one has already been written.
-	// Fixes https://github.com/minio/minio/issues/21633
+	// Fixes https://github.com/lgcorzo/minio/issues/21633
 	if headersAlreadyWritten(w) {
 		return
 	}

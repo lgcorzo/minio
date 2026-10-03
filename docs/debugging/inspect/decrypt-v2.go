@@ -26,7 +26,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/minio/madmin-go/v3/estream"
+	"github.com/lgcorzo/madmin-go/v3/estream"
 )
 
 type keepFileErr struct {

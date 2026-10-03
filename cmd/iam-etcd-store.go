@@ -27,9 +27,9 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/minio/internal/kms"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/minio/internal/kms"
 	"github.com/puzpuzpuz/xsync/v3"
 	"go.etcd.io/etcd/api/v3/mvccpb"
 	etcd "go.etcd.io/etcd/client/v3"

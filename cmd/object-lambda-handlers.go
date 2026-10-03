@@ -29,16 +29,16 @@ import (
 
 	"github.com/klauspost/compress/gzhttp"
 	"github.com/lithammer/shortuuid/v4"
-	miniogo "github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	miniogo "github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7/pkg/credentials"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 
-	"github.com/minio/minio/internal/auth"
-	levent "github.com/minio/minio/internal/config/lambda/event"
-	"github.com/minio/minio/internal/hash/sha256"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
+	"github.com/lgcorzo/minio/internal/auth"
+	levent "github.com/lgcorzo/minio/internal/config/lambda/event"
+	"github.com/lgcorzo/minio/internal/hash/sha256"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	"github.com/lgcorzo/minio/internal/logger"
 )
 
 var getLambdaEventData = func(bucket, object string, cred auth.Credentials, r *http.Request) (levent.Event, error) {

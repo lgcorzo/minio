@@ -34,11 +34,11 @@ import (
 	"github.com/IBM/sarama"
 	saramatls "github.com/IBM/sarama/tools/tls"
 
-	xioutil "github.com/minio/minio/internal/ioutil"
-	types "github.com/minio/minio/internal/logger/target/loggertypes"
-	"github.com/minio/minio/internal/once"
-	"github.com/minio/minio/internal/store"
-	xnet "github.com/minio/pkg/v3/net"
+	xioutil "github.com/lgcorzo/minio/internal/ioutil"
+	types "github.com/lgcorzo/minio/internal/logger/target/loggertypes"
+	"github.com/lgcorzo/minio/internal/once"
+	"github.com/lgcorzo/minio/internal/store"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 // the suffix for the configured queue dir where the logs will be persisted.

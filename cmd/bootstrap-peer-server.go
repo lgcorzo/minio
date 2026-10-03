@@ -31,10 +31,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio/internal/grid"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio/internal/grid"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 // To abstract a node over network.

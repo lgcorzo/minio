@@ -27,10 +27,10 @@ import (
 	"sync"
 	"time"
 
-	xioutil "github.com/minio/minio/internal/ioutil"
-	"github.com/minio/minio/internal/mcontext"
-	"github.com/minio/pkg/v3/console"
-	"github.com/minio/pkg/v3/env"
+	xioutil "github.com/lgcorzo/minio/internal/ioutil"
+	"github.com/lgcorzo/minio/internal/mcontext"
+	"github.com/lgcorzo/pkg/v3/console"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 // Indicator if logging is enabled.

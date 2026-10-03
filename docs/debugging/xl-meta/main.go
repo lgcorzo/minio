@@ -42,8 +42,8 @@ import (
 	"github.com/klauspost/compress/zip"
 	"github.com/klauspost/filepathx"
 	"github.com/klauspost/reedsolomon"
-	"github.com/minio/cli"
-	"github.com/minio/highwayhash"
+	"github.com/lgcorzo/cli"
+	"github.com/lgcorzo/highwayhash"
 	"github.com/tinylib/msgp/msgp"
 )
 

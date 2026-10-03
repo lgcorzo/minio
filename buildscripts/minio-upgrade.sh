@@ -74,7 +74,7 @@ __init__() {
 	export GOPATH=/tmp/gopath
 	export PATH=${PATH}:${GOPATH}/bin
 
-	go install github.com/minio/mc@latest
+	go install github.com/lgcorzo/mc@latest
 
 	## this is needed because github actions don't have
 	## docker-compose on all runners
@@ -89,7 +89,7 @@ __init__() {
 
 	LEGACY_VERSION=RELEASE.2020-10-28T08-16-50Z
 	echo "Downloading legacy MinIO binary ${LEGACY_VERSION}..."
-	curl -fsSL "https://github.com/minio/minio/releases/download/${LEGACY_VERSION}/minio.linux-amd64.${LEGACY_VERSION}" -o "buildscripts/upgrade-tests/minio"
+	curl -fsSL "https://github.com/lgcorzo/minio/releases/download/${LEGACY_VERSION}/minio.linux-amd64.${LEGACY_VERSION}" -o "buildscripts/upgrade-tests/minio"
 	chmod +x "buildscripts/upgrade-tests/minio"
 	docker build -t "minio/minio:${LEGACY_VERSION}" -f "buildscripts/upgrade-tests/Dockerfile.legacy" .
 	rm -f "buildscripts/upgrade-tests/minio"

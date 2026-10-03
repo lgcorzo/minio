@@ -23,12 +23,12 @@ import (
 	"math"
 	"net/http"
 
-	"github.com/minio/minio/internal/auth"
-	objectlock "github.com/minio/minio/internal/bucket/object/lock"
-	"github.com/minio/minio/internal/bucket/replication"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/minio/internal/auth"
+	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
+	"github.com/lgcorzo/minio/internal/bucket/replication"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // BucketObjectLockSys - map of bucket and retention configuration.

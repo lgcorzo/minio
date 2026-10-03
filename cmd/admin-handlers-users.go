@@ -35,13 +35,13 @@ import (
 	"unicode/utf8"
 
 	"github.com/klauspost/compress/zip"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/config/dns"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/mux"
-	xldap "github.com/minio/pkg/v3/ldap"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/minio/internal/config/dns"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/mux"
+	xldap "github.com/lgcorzo/pkg/v3/ldap"
+	"github.com/lgcorzo/pkg/v3/policy"
 	"github.com/puzpuzpuz/xsync/v3"
 )
 

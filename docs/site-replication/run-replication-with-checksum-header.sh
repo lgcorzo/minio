@@ -56,7 +56,7 @@ EOF
 
 # Create certificates for TLS enabled MinIO
 echo -n "Setup certs for MinIO instances ..."
-wget -O certgen https://github.com/minio/certgen/releases/latest/download/certgen-linux-amd64 && chmod +x certgen
+wget -O certgen https://github.com/lgcorzo/certgen/releases/latest/download/certgen-linux-amd64 && chmod +x certgen
 ./certgen --host localhost
 mkdir -p /tmp/certs
 mv public.crt /tmp/certs || sudo mv public.crt /tmp/certs

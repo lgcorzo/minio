@@ -32,13 +32,13 @@ import (
 
 	"github.com/dchest/siphash"
 	"github.com/google/uuid"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio-go/v7/pkg/tags"
-	"github.com/minio/minio/internal/dsync"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/pkg/v3/console"
-	"github.com/minio/pkg/v3/sync/errgroup"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/lgcorzo/minio/internal/dsync"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/pkg/v3/console"
+	"github.com/lgcorzo/pkg/v3/sync/errgroup"
 	"github.com/puzpuzpuz/xsync/v3"
 )
 

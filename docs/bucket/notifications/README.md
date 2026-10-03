@@ -1325,10 +1325,10 @@ arn:minio:sqs::1:webhook   s3:ObjectCreated:*   Filter: suffix=".jpg"
 
 ### Step 3: Test with Thumbnailer
 
-We used [Thumbnailer](https://github.com/minio/thumbnailer) to listen for MinIO notifications when a new JPEG file is uploaded (HTTP PUT). Triggered by a notification, Thumbnailer uploads a thumbnail of new image to MinIO server. To start with, download and install Thumbnailer.
+We used [Thumbnailer](https://github.com/lgcorzo/thumbnailer) to listen for MinIO notifications when a new JPEG file is uploaded (HTTP PUT). Triggered by a notification, Thumbnailer uploads a thumbnail of new image to MinIO server. To start with, download and install Thumbnailer.
 
 ```
-git clone https://github.com/minio/thumbnailer/
+git clone https://github.com/lgcorzo/thumbnailer/
 npm install
 ```
 

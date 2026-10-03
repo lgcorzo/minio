@@ -46,11 +46,11 @@ unset MINIO_KMS_KES_KEY_FILE
 unset MINIO_KMS_KES_ENDPOINT
 unset MINIO_KMS_KES_KEY_NAME
 
-go install -v github.com/minio/mc@master
+go install -v github.com/lgcorzo/mc@master
 cp -a $(go env GOPATH)/bin/mc ./mc
 
 if [ ! -f mc.RELEASE.2021-03-12T03-36-59Z ]; then
-	wget -q -O mc.RELEASE.2021-03-12T03-36-59Z https://github.com/minio/mc/releases/download/RELEASE.2021-03-12T03-36-59Z/mc.linux-amd64.RELEASE.2021-03-12T03-36-59Z &&
+	wget -q -O mc.RELEASE.2021-03-12T03-36-59Z https://github.com/lgcorzo/mc/releases/download/RELEASE.2021-03-12T03-36-59Z/mc.linux-amd64.RELEASE.2021-03-12T03-36-59Z &&
 		chmod +x mc.RELEASE.2021-03-12T03-36-59Z
 fi
 
@@ -218,7 +218,7 @@ echo "Verifying ETag for all objects"
 ./s3-check-md5 -versions -access-key minio -secret-key minio123 -endpoint http://127.0.0.1:9006/ -bucket olockbucket
 
 # additional tests for encryption object alignment
-go install -v github.com/minio/multipart-debug@latest
+go install -v github.com/lgcorzo/multipart-debug@latest
 
 upload_id=$(multipart-debug --endpoint 127.0.0.1:9001 --accesskey minio --secretkey minio123 multipart new --bucket bucket --object new-test-encrypted-object --encrypt)
 

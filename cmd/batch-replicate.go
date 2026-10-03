@@ -20,9 +20,9 @@ package cmd
 import (
 	"time"
 
-	miniogo "github.com/minio/minio-go/v7"
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/pkg/v3/xtime"
+	miniogo "github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/pkg/v3/xtime"
 )
 
 //go:generate msgp -file $GOFILE

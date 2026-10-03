@@ -18,16 +18,16 @@
 package cmd
 
 import (
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/minio/internal/config/compress"
-	xldap "github.com/minio/minio/internal/config/identity/ldap"
-	"github.com/minio/minio/internal/config/identity/openid"
-	"github.com/minio/minio/internal/config/notify"
-	"github.com/minio/minio/internal/config/policy/opa"
-	"github.com/minio/minio/internal/config/storageclass"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/pkg/v3/quick"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/minio/internal/config/compress"
+	xldap "github.com/lgcorzo/minio/internal/config/identity/ldap"
+	"github.com/lgcorzo/minio/internal/config/identity/openid"
+	"github.com/lgcorzo/minio/internal/config/notify"
+	"github.com/lgcorzo/minio/internal/config/policy/opa"
+	"github.com/lgcorzo/minio/internal/config/storageclass"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/pkg/v3/quick"
 )
 
 // FileLogger is introduced to workaround the dependency about logrus

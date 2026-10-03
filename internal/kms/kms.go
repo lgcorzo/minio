@@ -25,8 +25,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minio/kms-go/kms"
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/kms-go/kms"
+	"github.com/lgcorzo/madmin-go/v3"
 )
 
 // ListRequest is a structure containing fields

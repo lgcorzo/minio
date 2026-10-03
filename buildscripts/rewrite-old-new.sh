@@ -16,7 +16,7 @@ fi
 
 function download_old_release() {
 	if [ ! -f minio.RELEASE.2020-10-28T08-16-50Z ]; then
-		curl -sL -o minio.RELEASE.2020-10-28T08-16-50Z https://github.com/minio/minio/releases/download/RELEASE.2020-10-28T08-16-50Z/minio.linux-amd64.RELEASE.2020-10-28T08-16-50Z
+		curl -sL -o minio.RELEASE.2020-10-28T08-16-50Z https://github.com/lgcorzo/minio/releases/download/RELEASE.2020-10-28T08-16-50Z/minio.linux-amd64.RELEASE.2020-10-28T08-16-50Z
 		chmod a+x minio.RELEASE.2020-10-28T08-16-50Z
 	fi
 }
@@ -31,8 +31,8 @@ function verify_rewrite() {
 	export MINIO_CI_CD=1
 
 	MC_BUILD_DIR="mc-$RANDOM"
-	if ! git clone --quiet https://github.com/minio/mc "$MC_BUILD_DIR"; then
-		echo "failed to download https://github.com/minio/mc"
+	if ! git clone --quiet https://github.com/lgcorzo/mc "$MC_BUILD_DIR"; then
+		echo "failed to download https://github.com/lgcorzo/mc"
 		purge "${MC_BUILD_DIR}"
 		exit 1
 	fi

@@ -26,9 +26,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio/internal/kms"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio/internal/kms"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 const (

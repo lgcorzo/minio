@@ -32,8 +32,8 @@ import (
 
 	"github.com/dustin/go-humanize"
 	uuid2 "github.com/google/uuid"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio/internal/config/storageclass"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio/internal/config/storageclass"
 )
 
 // Tests isObjectDangling function

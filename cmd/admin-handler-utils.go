@@ -23,11 +23,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/minio/kms-go/kes"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/kms-go/kes"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // validateAdminReq will validate request against and return whether it is allowed.

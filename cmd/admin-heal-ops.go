@@ -28,9 +28,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
-	xioutil "github.com/minio/minio/internal/ioutil"
-	"github.com/minio/minio/internal/logger"
+	"github.com/lgcorzo/madmin-go/v3"
+	xioutil "github.com/lgcorzo/minio/internal/ioutil"
+	"github.com/lgcorzo/minio/internal/logger"
 )
 
 // healStatusSummary - overall short summary of a healing sequence

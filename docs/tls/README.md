@@ -42,7 +42,7 @@ This section describes how to generate a self-signed certificate using various t
 
 ### 3.1 Use `certgen` to Generate a Certificate
 
-Download [`certgen`](https://github.com/minio/certgen/releases/latest) for your specific operating system and platform.
+Download [`certgen`](https://github.com/lgcorzo/certgen/releases/latest) for your specific operating system and platform.
 
 `certgen` is a simple *Go* tool to generate self-signed certificates, and provides SAN certificates with DNS and IP entries:
 
@@ -237,7 +237,7 @@ MinIO can connect to other servers, including MinIO nodes or other server types 
 
 ## Explore Further
 
-* [TLS Configuration for MinIO server on Kubernetes](https://github.com/minio/minio/tree/master/docs/tls/kubernetes)
+* [TLS Configuration for MinIO server on Kubernetes](https://github.com/lgcorzo/minio/tree/master/docs/tls/kubernetes)
 * [MinIO Client Complete Guide](https://docs.min.io/community/minio-object-store/reference/minio-mc.html)
 * [MinIO Network Encryption Overview](https://docs.min.io/community/minio-object-store/operations/network-encryption.html)
 * [Generate Let's Encrypt Certificate](https://docs.min.io/community/minio-object-store/integrations/generate-lets-encrypt-certificate-using-certbot-for-minio.html)

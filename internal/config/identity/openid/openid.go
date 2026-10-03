@@ -31,16 +31,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio/internal/arn"
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/minio/internal/config/identity/openid/provider"
-	"github.com/minio/minio/internal/hash/sha256"
-	"github.com/minio/pkg/v3/env"
-	xnet "github.com/minio/pkg/v3/net"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio/internal/arn"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/minio/internal/config/identity/openid/provider"
+	"github.com/lgcorzo/minio/internal/hash/sha256"
+	"github.com/lgcorzo/pkg/v3/env"
+	xnet "github.com/lgcorzo/pkg/v3/net"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // OpenID keys and envs.

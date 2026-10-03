@@ -8,11 +8,11 @@ pkill minio
 pkill kes
 rm -rf /tmp/xl
 
-go install -v github.com/minio/mc@master
+go install -v github.com/lgcorzo/mc@master
 cp -a $(go env GOPATH)/bin/mc ./mc
 
 if [ ! -f ./kes ]; then
-	wget --quiet -O kes https://github.com/minio/kes/releases/latest/download/kes-linux-amd64 &&
+	wget --quiet -O kes https://github.com/lgcorzo/kes/releases/latest/download/kes-linux-amd64 &&
 		chmod +x kes
 fi
 

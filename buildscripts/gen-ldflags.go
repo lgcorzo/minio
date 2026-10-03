@@ -38,13 +38,13 @@ func genLDFlags(version string) string {
 		shortCid = cid[:12]
 	}
 	ldflagsStr := "-s -w"
-	ldflagsStr += " -X github.com/minio/minio/cmd.Version=" + version
-	ldflagsStr += " -X github.com/minio/minio/cmd.CopyrightYear=" + copyrightYear
-	ldflagsStr += " -X github.com/minio/minio/cmd.ReleaseTag=" + releaseTag
-	ldflagsStr += " -X github.com/minio/minio/cmd.CommitID=" + cid
-	ldflagsStr += " -X github.com/minio/minio/cmd.ShortCommitID=" + shortCid
-	ldflagsStr += " -X github.com/minio/minio/cmd.GOPATH=" + os.Getenv("GOPATH")
-	ldflagsStr += " -X github.com/minio/minio/cmd.GOROOT=" + os.Getenv("GOROOT")
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.Version=" + version
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.CopyrightYear=" + copyrightYear
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.ReleaseTag=" + releaseTag
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.CommitID=" + cid
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.ShortCommitID=" + shortCid
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.GOPATH=" + os.Getenv("GOPATH")
+	ldflagsStr += " -X github.com/lgcorzo/minio/cmd.GOROOT=" + os.Getenv("GOROOT")
 	return ldflagsStr
 }
 
