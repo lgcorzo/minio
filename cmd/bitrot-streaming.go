@@ -90,9 +90,11 @@ func (b *streamingBitrotWriter) Close() error {
 		b.canClose.Wait()
 	}
 
-	// Recycle the buffer.
+	// Recycle the buffer if pooled.
 	if b.byteBuf != nil {
-		globalBytePoolCap.Load().Put(b.byteBuf)
+		if pool := globalBytePoolCap.Load(); pool != nil {
+			pool.Put(b.byteBuf)
+		}
 		b.byteBuf = nil
 	}
 	return err
@@ -107,8 +109,17 @@ func newStreamingBitrotWriterBuffer(w io.Writer, algo BitrotAlgorithm, shardSize
 // Returns streaming bitrot writer implementation.
 func newStreamingBitrotWriter(disk StorageAPI, origvolume, volume, filePath string, length int64, algo BitrotAlgorithm, shardSize int64) io.Writer {
 	h := algo.New()
-	buf := globalBytePoolCap.Load().Get()
-	rb := ringbuffer.NewBuffer(buf[:cap(buf)]).SetBlocking(true)
+	var buf []byte
+	if pool := globalBytePoolCap.Load(); pool != nil {
+		buf = pool.Get()
+	}
+	var rb *ringbuffer.RingBuffer
+	if len(buf) > 0 {
+		rb = ringbuffer.NewBuffer(buf[:cap(buf)]).SetBlocking(true)
+	} else {
+		buf = nil
+		rb = ringbuffer.New(1024 * 1024).SetBlocking(true)
+	}
 
 	bw := &streamingBitrotWriter{
 		iow:          ioutil.NewDeadlineWriter(rb.WriteCloser(), globalDriveConfig.GetMaxTimeout()),
