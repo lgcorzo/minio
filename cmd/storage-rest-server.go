@@ -671,6 +671,10 @@ func (s *storageRESTServer) DeleteVersionsHandler(w http.ResponseWriter, r *http
 		s.writeErrorResponse(w, err)
 		return
 	}
+	if totalVersions < 0 || totalVersions > 100000 {
+		s.writeErrorResponse(w, errInvalidArgument)
+		return
+	}
 
 	versions := make([]FileInfoVersions, totalVersions)
 	decoder := msgpNewReader(r.Body)

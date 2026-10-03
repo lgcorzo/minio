@@ -18,6 +18,7 @@
 package sql
 
 import (
+	"math"
 	"time"
 )
 
@@ -114,19 +115,40 @@ func extract(what string, t time.Time) (v *Value, err error) {
 }
 
 func dateAdd(timePart string, qty float64, t time.Time) (*Value, error) {
+	if math.IsNaN(qty) || math.IsInf(qty, 0) {
+		return nil, errNotImplemented
+	}
 	var duration time.Duration
 	switch timePart {
 	case timePartYear:
+		if qty > math.MaxInt32 || qty < math.MinInt32 {
+			return nil, errNotImplemented
+		}
 		return FromTimestamp(t.AddDate(int(qty), 0, 0)), nil
 	case timePartMonth:
+		if qty > math.MaxInt32 || qty < math.MinInt32 {
+			return nil, errNotImplemented
+		}
 		return FromTimestamp(t.AddDate(0, int(qty), 0)), nil
 	case timePartDay:
+		if qty > math.MaxInt32 || qty < math.MinInt32 {
+			return nil, errNotImplemented
+		}
 		return FromTimestamp(t.AddDate(0, 0, int(qty))), nil
 	case timePartHour:
+		if qty > float64(math.MaxInt64/int64(time.Hour)) || qty < float64(math.MinInt64/int64(time.Hour)) {
+			return nil, errNotImplemented
+		}
 		duration = time.Duration(qty) * time.Hour
 	case timePartMinute:
+		if qty > float64(math.MaxInt64/int64(time.Minute)) || qty < float64(math.MinInt64/int64(time.Minute)) {
+			return nil, errNotImplemented
+		}
 		duration = time.Duration(qty) * time.Minute
 	case timePartSecond:
+		if qty > float64(math.MaxInt64/int64(time.Second)) || qty < float64(math.MinInt64/int64(time.Second)) {
+			return nil, errNotImplemented
+		}
 		duration = time.Duration(qty) * time.Second
 	default:
 		return nil, errNotImplemented

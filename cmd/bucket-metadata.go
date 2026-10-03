@@ -26,6 +26,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
+	"math"
 	"path"
 	"time"
 
@@ -504,7 +505,11 @@ func (b *BucketMetadata) Save(ctx context.Context, api ObjectLayer) error {
 		return err
 	}
 
-	data := make([]byte, 4, b.Msgsize()+4)
+	sz := b.Msgsize()
+	if sz < 0 || sz > math.MaxInt-4 {
+		return errInvalidArgument
+	}
+	data := make([]byte, 4, sz+4)
 
 	// Initialize the header.
 	binary.LittleEndian.PutUint16(data[0:2], bucketMetadataFormat)
