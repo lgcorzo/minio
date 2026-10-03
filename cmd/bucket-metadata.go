@@ -504,17 +504,15 @@ func (b *BucketMetadata) Save(ctx context.Context, api ObjectLayer) error {
 		return err
 	}
 
-	data := make([]byte, 4, b.Msgsize()+4)
-
-	// Initialize the header.
-	binary.LittleEndian.PutUint16(data[0:2], bucketMetadataFormat)
-	binary.LittleEndian.PutUint16(data[2:4], bucketMetadataVersion)
-
-	// Marshal the bucket metadata
-	data, err := b.MarshalMsg(data)
+	payload, err := b.MarshalMsg(nil)
 	if err != nil {
 		return err
 	}
+
+	data := make([]byte, 4+len(payload))
+	binary.LittleEndian.PutUint16(data[0:2], bucketMetadataFormat)
+	binary.LittleEndian.PutUint16(data[2:4], bucketMetadataVersion)
+	copy(data[4:], payload)
 
 	configFile := path.Join(bucketMetaPrefix, b.Name, bucketMetadataFile)
 	return saveConfig(ctx, api, configFile, data)

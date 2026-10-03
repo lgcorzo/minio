@@ -6,7 +6,7 @@ GOOS ?= $(shell go env GOOS)
 GOARCH ?= $(shell go env GOARCH)
 
 VERSION ?= $(shell git describe --tags)
-REPO ?= quay.io/minio
+REPO ?= ghcr.io/lgcorzo
 TAG ?= $(REPO)/minio:$(VERSION)
 
 GOLANGCI_VERSION ?= v1.64.5

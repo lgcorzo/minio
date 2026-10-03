@@ -50,6 +50,7 @@ function verify_resiliency_healing() {
 	else
 		echo -e "${GREEN}${1} Passed${NC}"
 	fi
+	./mc ready myminio >/dev/null 2>&1
 }
 
 function test_resiliency_success_with_server_down() {
