@@ -26,7 +26,6 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"math"
 	"path"
 	"time"
 
