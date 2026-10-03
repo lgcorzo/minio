@@ -282,3 +282,5 @@ require (
 )
 
 replace github.com/go-openapi/testify/v2 => github.com/go-openapi/testify/v2 v2.4.1
+
+replace github.com/coreos/go-systemd/v22 => github.com/coreos/go-systemd/v22 v22.5.0
