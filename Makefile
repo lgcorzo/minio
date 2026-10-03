@@ -9,7 +9,7 @@ VERSION ?= $(shell git describe --tags)
 REPO ?= ghcr.io/lgcorzo
 TAG ?= $(REPO)/minio:$(VERSION)
 
-GOLANGCI_VERSION ?= v1.64.5
+GOLANGCI_VERSION ?= v1.64.8
 GOLANGCI_DIR = .bin/golangci/$(GOLANGCI_VERSION)
 GOLANGCI = $(GOLANGCI_DIR)/golangci-lint
 
@@ -24,7 +24,10 @@ help: ## print this help
 
 getdeps: ## fetch necessary dependencies
 	@mkdir -p $(GOLANGCI_DIR)
-	@echo "Installing golangci-lint" && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(GOLANGCI_DIR) $(GOLANGCI_VERSION)
+	@if [ ! -f $(GOLANGCI) ]; then \
+		echo "Installing golangci-lint" && \
+		GOTOOLCHAIN=local GOBIN=$(PWD)/$(GOLANGCI_DIR) go install github.com/golangci/golangci-lint/cmd/golangci-lint@$(GOLANGCI_VERSION); \
+	fi
 
 crosscompile: ## cross compile minio
 	@(env bash $(PWD)/buildscripts/cross-compile.sh)
