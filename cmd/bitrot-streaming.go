@@ -114,7 +114,7 @@ func newStreamingBitrotWriter(disk StorageAPI, origvolume, volume, filePath stri
 		buf = pool.Get()
 	}
 	var rb *ringbuffer.RingBuffer
-	if len(buf) > 0 {
+	if cap(buf) > 0 {
 		rb = ringbuffer.NewBuffer(buf[:cap(buf)]).SetBlocking(true)
 	} else {
 		buf = nil

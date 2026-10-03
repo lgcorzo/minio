@@ -505,8 +505,9 @@ func (b *BucketMetadata) Save(ctx context.Context, api ObjectLayer) error {
 		return err
 	}
 
+	const maxBucketMetadataSize = 50 * 1024 * 1024 // 50MB
 	sz := b.Msgsize()
-	if sz < 0 || sz > math.MaxInt-4 {
+	if sz < 0 || sz > maxBucketMetadataSize {
 		return errInvalidArgument
 	}
 	data := make([]byte, 4, sz+4)
