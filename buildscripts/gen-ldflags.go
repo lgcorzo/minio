@@ -32,12 +32,17 @@ import (
 func genLDFlags(version string) string {
 	releaseTag, date := releaseTag(version)
 	copyrightYear := strconv.Itoa(date.Year())
+	cid := commitID()
+	shortCid := cid
+	if len(cid) >= 12 {
+		shortCid = cid[:12]
+	}
 	ldflagsStr := "-s -w"
 	ldflagsStr += " -X github.com/minio/minio/cmd.Version=" + version
 	ldflagsStr += " -X github.com/minio/minio/cmd.CopyrightYear=" + copyrightYear
 	ldflagsStr += " -X github.com/minio/minio/cmd.ReleaseTag=" + releaseTag
-	ldflagsStr += " -X github.com/minio/minio/cmd.CommitID=" + commitID()
-	ldflagsStr += " -X github.com/minio/minio/cmd.ShortCommitID=" + commitID()[:12]
+	ldflagsStr += " -X github.com/minio/minio/cmd.CommitID=" + cid
+	ldflagsStr += " -X github.com/minio/minio/cmd.ShortCommitID=" + shortCid
 	ldflagsStr += " -X github.com/minio/minio/cmd.GOPATH=" + os.Getenv("GOPATH")
 	ldflagsStr += " -X github.com/minio/minio/cmd.GOROOT=" + os.Getenv("GOROOT")
 	return ldflagsStr
@@ -72,6 +77,9 @@ func releaseTag(version string) (string, time.Time) {
 
 // commitID returns the abbreviated commit-id hash of the last commit.
 func commitID() string {
+	if commit := os.Getenv("MINIO_COMMIT_ID"); commit != "" {
+		return commit
+	}
 	// git log --format="%H" -n1
 	var (
 		commit []byte
@@ -80,14 +88,18 @@ func commitID() string {
 	cmdName := "git"
 	cmdArgs := []string{"log", "--format=%H", "-n1"}
 	if commit, err = exec.Command(cmdName, cmdArgs...).Output(); err != nil {
-		fmt.Fprintln(os.Stderr, "Error generating git commit-id: ", err)
-		os.Exit(1)
+		return "unknown000000000000"
 	}
 
 	return strings.TrimSpace(string(commit))
 }
 
 func commitTime() time.Time {
+	if ct := os.Getenv("MINIO_COMMIT_TIME"); ct != "" {
+		if t, err := time.Parse(time.RFC3339, ct); err == nil {
+			return t.UTC()
+		}
+	}
 	// git log --format=%cD -n1
 	var (
 		commitUnix []byte
@@ -96,14 +108,12 @@ func commitTime() time.Time {
 	cmdName := "git"
 	cmdArgs := []string{"log", "--format=%cI", "-n1"}
 	if commitUnix, err = exec.Command(cmdName, cmdArgs...).Output(); err != nil {
-		fmt.Fprintln(os.Stderr, "Error generating git commit-time: ", err)
-		os.Exit(1)
+		return time.Now().UTC()
 	}
 
 	t, err := time.Parse(time.RFC3339, strings.TrimSpace(string(commitUnix)))
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "Error generating git commit-time: ", err)
-		os.Exit(1)
+		return time.Now().UTC()
 	}
 
 	return t.UTC()

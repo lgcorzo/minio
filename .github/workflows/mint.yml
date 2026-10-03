@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   mint-test:
+    if: github.repository == 'minio/minio'
     runs-on: mint
     timeout-minutes: 120
     steps:

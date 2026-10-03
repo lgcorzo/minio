@@ -28,6 +28,13 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
           check-latest: true
+      - name: Setup MinIO Client
+        run: |
+          go install github.com/minio/mc@master
+          MC_BIN="$(go env GOPATH)/bin/mc"
+          sudo cp "${MC_BIN}" /usr/local/bin/mc
+          sudo cp "${MC_BIN}" /tmp/mc
+          cp "${MC_BIN}" ./mc
       - name: Build on ${{ matrix.os }}
         if: matrix.os == 'ubuntu-latest'
         env:

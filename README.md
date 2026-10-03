@@ -1,9 +1,70 @@
 > [!NOTE]
-> **THIS REPOSITORY IS NO LONGER MAINTAINED.**
->
-> **Alternatives:**
-> - **[AIStor Free](https://min.io/download)** — Full-featured, standalone edition for community use (free license)
-> - **[AIStor Enterprise](https://min.io/pricing)** — Distributed edition with commercial support
+> **UPSTREAM STATUS & FORK PURPOSE:**
+> While upstream MinIO has archived the open-source community edition in favor of proprietary AIStor, this repository is **actively maintained and hardened** as an essential infrastructure component of the **[Dark Gravity Autonomous CA/CD Factory](https://github.com/lgcorzo/rust_CACD_autonomous_factory)**. Ongoing security patches, multi-stage container builds, and supply-chain integrity checks are continuously integrated to safeguard the autonomous software delivery lifecycle.
+
+---
+
+## 🛡️ Dark Gravity Factory: Security Maintenance & System Integrity Rationale
+
+### 1. Why Security Maintenance Continues on this Repository
+
+In the **Dark Gravity Autonomous CA/CD Software Factory (V7.2 / V7.3)**, MinIO is not merely a utility—it is the **foundational persistent Object Storage Fabric** for the entire autonomous engineering system.
+
+Upstream MinIO's shift away from open-source community maintenance (`410 Gone` on legacy binary distributions) leaves unaddressed security vulnerabilities (CVEs) and orphaned dependency chains. In a zero-trust, autonomous multi-agent factory where AI agents autonomously synthesize, compile, and deploy software:
+- **Supply-Chain & Runtime Integrity**: Unpatched storage vulnerabilities would compromise the integrity of compiled binaries, causal provenance records, and git mutations.
+- **Air-Gapped Data Sovereignty**: Dark Gravity operates on sovereign, air-gapped infrastructure. Proprietary source code, AST mutations, and corporate memory must never escape the private network perimeter.
+- **Continuous Compliance & Auditability**: Under regulations like the **EU AI Act (Art. 12 & 14)**, **SOC 2 Type II**, and **ISO/IEC 25059**, any breach or tampering with the underlying storage layer voids the factory's cryptographic proof-of-lineage.
+
+Therefore, this repository is actively maintained to remediate security flaws, patch critical vulnerabilities, eliminate external third-party download dependencies, and provide robust CI/CD container builds tailored for production Kubernetes and MicroK8s environments.
+
+---
+
+### 2. Integration Architecture within Dark Gravity
+
+MinIO is deeply embedded across the Dark Gravity architecture:
+
+```mermaid
+graph TD
+    subgraph "MicroK8s Cluster (storage namespace)"
+        MINIO["MinIO Tenant S3 Storage<br/>(mlflow-minio-pool-0)"]
+    end
+
+    subgraph "Dark Gravity Rust Factory Core"
+        HATCHET["Hatchet DAG Engine<br/>(Crash Resilience)"] -->|BridgeState Checkpoints| B_CHECK["dg-factory-checkpoints"]
+        ZERO_CLAW["ZeroClaw / Rustant<br/>(Code Execution)"] -->|Spec-Kit & Code Artifacts| B_ART["factory-artifacts"]
+        DOC_AGENT["Documentation Agent<br/>(DocAgent)"] -->|Hazitek / SPRI / EU AI Act| B_COMP["factory-artifacts/compliance/"]
+        SEMANTICA["Semantica-AGI<br/>(Causal Graph)"] -->|Ontological Lineage Snapshots| B_SEM["semantica-provenance"]
+        R2R["R2R GraphRAG<br/>(Open Knowledge Format)"] -->|Research Nodes & OKF Docs| B_R2R["r2r-documents"]
+        MLFLOW["MLflow Tracking Server"] -->|Model Weights & Partitions| B_MLF["mlflow"]
+    end
+
+    B_CHECK --> MINIO
+    B_ART --> MINIO
+    B_COMP --> MINIO
+    B_SEM --> MINIO
+    B_R2R --> MINIO
+    B_MLF --> MINIO
+```
+
+* **Cluster Topology & Service Endpoints**: Deployed in the `storage` Kubernetes namespace as `minio` and `mlflow-minio-pool-0` (`http://mlflow-minio-hl.storage.svc.cluster.local:9000`), managed natively via the MinIO Operator.
+* **Rust Infrastructure Layer (`factory-infrastructure`)**: Integrated directly into the factory via `factory-infrastructure/src/s3.rs` through the `AwsS3Storage` adapter implementing the `S3Storage` trait (`put_object`, `get_object`).
+* **Subsystem Dependencies**:
+  1. **Hatchet Orchestrator Engine (`dg-factory-checkpoints`)**: Persists durable `BridgeState` step checkpoints. If an autonomous worker crashes or reaches gVisor memory limits (≤ 30 MiB), the worker immediately resumes from the last completed task in MinIO, preventing duplicate LLM prompt calls and eliminating token budget waste.
+  2. **Semantica-AGI Causal Governance (`semantica-provenance`)**: Persists immutable snapshots of the causal decision graph, linking business requirements and GitLab/GitHub issues down to exact Abstract Syntax Tree (AST) line mutations.
+  3. **R&D Compliance Packager (`factory-artifacts/compliance/`)**: Stores telemetry and auditable reports (compute core-hours, LiteLLM token spend, AST diff statistics, and Orphan Symbol Rate (OSR) metrics) formatted for **Hazitek, SPRI, and EU AI Act** audits.
+  4. **R2R GraphRAG Corporate Memory (`r2r-documents`)**: Serves as the raw backing store for research nodes, Tavily web scrape outputs, and Google Open Knowledge Format (OKF) Markdown files.
+  5. **MLflow Tracking Server (`mlflow`)**: Stores trained machine learning weights, dataset partitions, and experiment artifacts.
+
+---
+
+### 3. Critical Security Mechanisms Enforced
+
+To protect the factory against compromise, the following defenses are strictly enforced:
+- **Zero-Trust Path Traversal & Injection Defense**: In `factory-mcp-server`, MinIO object inspection tools enforce strict bucket whitelisting (`factory-artifacts`, `doc-agent-telemetry`, `r2r-documents`, `semantica-provenance`) and reject relative path sequences (`..` or `/`) to prevent path traversal and data exfiltration.
+- **Cryptographic Provenance (NHI Verifiable Credentials)**: Every artifact and code modification is cryptographically signed by Non-Human Identities (NHI) using **W3C Verifiable Credentials** with **Ed25519** keys and deterministic BLAKE3/SHA-256 hashes. Tampering with any stored object in MinIO triggers immediate hash mismatch alerts and trips the Aethelgard SAST circuit breaker.
+- **Automated Container Pipeline**: Fully automated multi-stage compilation using `golang:1.24-alpine` and lightweight Alpine 3.21 runtime, published to GHCR and the MicroK8s in-cluster registry (`localhost:32000`).
+
+For MicroK8s deployment details, see **[MicroK8s Deployment Guide](docs/microk8s-deployment.md)**.
 
 ---
 
@@ -95,26 +156,33 @@ For application developers, see <https://docs.min.io/enterprise/aistor-object-st
 
 ## Build Docker Image
 
-You can use the `docker build .` command to build a Docker image on your local host machine.
-You must first [build MinIO](#install-from-source) and ensure the `minio` binary exists in the project root.
+This repository features a fully self-contained multi-stage `Dockerfile` that builds both `minio` and the MinIO Client (`mc`) directly from source, producing a hardened Alpine 3.21 runtime container.
 
-The following command builds the Docker image using the default `Dockerfile` in the root project directory with the repository and image tag `myminio:minio`
-
-```sh
-docker build -t myminio:minio .
-```
-
-Use `docker image ls` to confirm the image exists in your local repository.
-You can run the server using standard Docker invocation:
+### Local Multi-Stage Build
+You can build the container image directly without any pre-requisites:
 
 ```sh
-docker run -p 9000:9000 -p 9001:9001 myminio:minio server /tmp/minio --console-address :9001
+docker build -t minio:latest .
 ```
 
-Complete documentation for building Docker containers, managing custom images, or loading images into orchestration platforms is out of scope for this documentation.
-You can modify the `Dockerfile` and `dockerscripts/docker-entrypoint.sh` as-needed to reflect your specific image requirements.
+### MicroK8s In-Cluster Deployment
+To build and deploy directly into your MicroK8s local cluster:
 
-See the [MinIO Container](https://docs.min.io/community/minio-object-store/operations/deployments/baremetal-deploy-minio-as-a-container.html#deploy-minio-container) documentation for more guidance on running MinIO within a Container image.
+```sh
+# Push to MicroK8s in-cluster registry (localhost:32000)
+./scripts/deploy-to-microk8s.sh registry microk8s-latest
+
+# Or import directly into MicroK8s containerd
+./scripts/deploy-to-microk8s.sh import microk8s-latest
+```
+
+### Automated CI/CD Pipeline
+Every push to `master` and `feat/**` branches automatically triggers [`.github/workflows/docker-publish.yml`](.github/workflows/docker-publish.yml), publishing verified images to GitHub Container Registry:
+- `ghcr.io/lgcorzo/minio:latest`
+- `ghcr.io/lgcorzo/minio:microk8s-latest`
+- `ghcr.io/lgcorzo/minio:<git-sha>`
+
+For full Kubernetes Tenant manifests and deployment instructions, refer to **[docs/microk8s-deployment.md](docs/microk8s-deployment.md)**.
 
 ## Install using Helm Charts
 

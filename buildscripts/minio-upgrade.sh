@@ -51,7 +51,14 @@ verify_checksum_mc() {
 add_alias() {
 	for i in $(seq 1 4); do
 		echo "... attempting to add alias $i"
+		local attempts=0
 		until (mc alias set minio http://127.0.0.1:9000 minioadmin minioadmin); do
+			attempts=$((attempts + 1))
+			if [ "${attempts}" -gt 24 ]; then
+				echo "Failed to connect to minio via alias after ${attempts} attempts."
+				/tmp/gopath/bin/docker-compose -f "buildscripts/upgrade-tests/compose.yml" logs
+				exit 1
+			fi
 			echo "...waiting... for 5secs" && sleep 5
 		done
 	done
@@ -78,7 +85,14 @@ __init__() {
 
 	TAG=minio/minio:dev make docker
 
-	MINIO_VERSION=RELEASE.2019-12-19T22-52-26Z docker-compose \
+	LEGACY_VERSION=RELEASE.2020-10-28T08-16-50Z
+	echo "Downloading legacy MinIO binary ${LEGACY_VERSION}..."
+	curl -fsSL "https://github.com/minio/minio/releases/download/${LEGACY_VERSION}/minio.linux-amd64.${LEGACY_VERSION}" -o "buildscripts/upgrade-tests/minio"
+	chmod +x "buildscripts/upgrade-tests/minio"
+	docker build -t "minio/minio:${LEGACY_VERSION}" -f "buildscripts/upgrade-tests/Dockerfile.legacy" .
+	rm -f "buildscripts/upgrade-tests/minio"
+
+	MINIO_VERSION=${LEGACY_VERSION} /tmp/gopath/bin/docker-compose \
 		-f "buildscripts/upgrade-tests/compose.yml" \
 		up -d --build
 

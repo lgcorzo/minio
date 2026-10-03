@@ -1,0 +1,14 @@
+FROM alpine:3.21
+
+RUN apk add --no-cache ca-certificates curl bash && \
+	mkdir -p /opt/bin /data /licenses /usr/bin /tmp/.mc && \
+	chmod -R 777 /opt/bin /data /tmp/.mc
+
+COPY buildscripts/upgrade-tests/minio /opt/bin/minio
+RUN ln -sf /opt/bin/minio /usr/bin/minio
+
+COPY dockerscripts/docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
+RUN chmod +x /usr/bin/docker-entrypoint.sh
+
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
+CMD ["minio"]

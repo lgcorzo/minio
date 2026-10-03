@@ -1,12 +1,15 @@
 #!/bin/sh
 #
 
-# If command starts with an option, prepend minio.
-if [ "${1}" != "minio" ]; then
+# If command starts with an option or is a minio subcommand, prepend minio.
+case "${1}" in
+minio | mc | sh | bash | /bin/sh | /bin/bash | curl) ;;
+*)
 	if [ -n "${1}" ]; then
 		set -- minio "$@"
 	fi
-fi
+	;;
+esac
 
 docker_switch_user() {
 	if [ -n "${MINIO_USERNAME}" ] && [ -n "${MINIO_GROUPNAME}" ]; then

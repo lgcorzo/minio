@@ -119,8 +119,13 @@ function __init__() {
 	echo '{"version": "3", "credential": {"accessKey": "minio", "secretKey": "minio123"}, "region": "us-east-1"}' >"$MINIO_CONFIG_DIR/config.json"
 
 	if [ ! -f /tmp/mc ]; then
-		wget --quiet -O /tmp/mc https://dl.minio.io/client/mc/release/linux-amd64/mc &&
-			chmod +x /tmp/mc
+		if which mc >/dev/null 2>&1; then
+			cp "$(which mc)" /tmp/mc
+		else
+			go install github.com/minio/mc@master
+			cp "$(go env GOPATH)/bin/mc" /tmp/mc
+		fi
+		chmod +x /tmp/mc
 	fi
 }
 
