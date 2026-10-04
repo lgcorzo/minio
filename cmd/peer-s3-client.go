@@ -27,9 +27,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/grid"
-	"github.com/minio/pkg/v3/sync/errgroup"
+	"github.com/lgcorzo/pkg/v3/sync/errgroup"
 )
 
 var errPeerOffline = errors.New("peer is offline")

@@ -22,11 +22,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/kms"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // KMSStatusHandler - GET /minio/kms/v1/status

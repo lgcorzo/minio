@@ -20,8 +20,8 @@ package cmd
 import (
 	"testing"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
 )
 
 // TestGetMissingSiteNames

@@ -31,7 +31,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/cachevalue"
 	"github.com/lgcorzo/minio/internal/grid"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"

@@ -119,7 +119,7 @@ import (
 
 	"github.com/lgcorzo/minio/internal/hash/sha256"
 	xhttp "github.com/lgcorzo/minio/internal/http"
-	"github.com/minio/sio"
+	"github.com/lgcorzo/sio"
 )
 
 // ETag is a single S3 ETag.

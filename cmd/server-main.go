@@ -38,11 +38,11 @@ import (
 
 	"github.com/coreos/go-systemd/v22/daemon"
 	"github.com/dustin/go-humanize"
-	"github.com/minio/cli"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/minio/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/cli"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7/pkg/credentials"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/bucket/bandwidth"
 	"github.com/lgcorzo/minio/internal/color"
@@ -53,8 +53,8 @@ import (
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/certs"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/certs"
+	"github.com/lgcorzo/pkg/v3/env"
 	"gopkg.in/yaml.v2"
 )
 

@@ -17901,8 +17901,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================================
 
-github.com/minio/cli
-https://github.com/minio/cli
+github.com/lgcorzo/cli
+https://github.com/lgcorzo/cli
 ----------------------------------------------------------------
 MIT License
 
@@ -17928,8 +17928,8 @@ SOFTWARE.
 
 ================================================================
 
-github.com/minio/console
-https://github.com/minio/console
+github.com/lgcorzo/console
+https://github.com/lgcorzo/console
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -18595,8 +18595,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/crc64nvme
-https://github.com/minio/crc64nvme
+github.com/lgcorzo/crc64nvme
+https://github.com/lgcorzo/crc64nvme
 ----------------------------------------------------------------
 
                                  Apache License
@@ -18803,8 +18803,8 @@ https://github.com/minio/crc64nvme
 
 ================================================================
 
-github.com/minio/dnscache
-https://github.com/minio/dnscache
+github.com/lgcorzo/dnscache
+https://github.com/lgcorzo/dnscache
 ----------------------------------------------------------------
 MIT License
 
@@ -18831,8 +18831,8 @@ SOFTWARE.
 
 ================================================================
 
-github.com/minio/dperf
-https://github.com/minio/dperf
+github.com/lgcorzo/dperf
+https://github.com/lgcorzo/dperf
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -19498,8 +19498,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/highwayhash
-https://github.com/minio/highwayhash
+github.com/lgcorzo/highwayhash
+https://github.com/lgcorzo/highwayhash
 ----------------------------------------------------------------
 
                                  Apache License
@@ -19706,8 +19706,8 @@ https://github.com/minio/highwayhash
 
 ================================================================
 
-github.com/minio/kms-go/kes
-https://github.com/minio/kms-go/kes
+github.com/lgcorzo/kms-go/kes
+https://github.com/lgcorzo/kms-go/kes
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -20373,8 +20373,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/kms-go/kms
-https://github.com/minio/kms-go/kms
+github.com/lgcorzo/kms-go/kms
+https://github.com/lgcorzo/kms-go/kms
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -21040,8 +21040,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/madmin-go/v3
-https://github.com/minio/madmin-go/v3
+github.com/lgcorzo/madmin-go/v3
+https://github.com/lgcorzo/madmin-go/v3
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -21707,8 +21707,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/mc
-https://github.com/minio/mc
+github.com/lgcorzo/mc
+https://github.com/lgcorzo/mc
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -22374,8 +22374,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/md5-simd
-https://github.com/minio/md5-simd
+github.com/lgcorzo/md5-simd
+https://github.com/lgcorzo/md5-simd
 ----------------------------------------------------------------
 
                                  Apache License
@@ -22582,8 +22582,8 @@ https://github.com/minio/md5-simd
 
 ================================================================
 
-github.com/minio/minio-go/v7
-https://github.com/minio/minio-go/v7
+github.com/lgcorzo/minio-go/v7
+https://github.com/lgcorzo/minio-go/v7
 ----------------------------------------------------------------
 
                                  Apache License
@@ -22790,8 +22790,8 @@ https://github.com/minio/minio-go/v7
 
 ================================================================
 
-github.com/minio/mux
-https://github.com/minio/mux
+github.com/lgcorzo/mux
+https://github.com/lgcorzo/mux
 ----------------------------------------------------------------
 Copyright (c) 2023 The Gorilla Authors. All rights reserved.
 
@@ -22823,8 +22823,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================================
 
-github.com/minio/pkg/v3
-https://github.com/minio/pkg/v3
+github.com/lgcorzo/pkg/v3
+https://github.com/lgcorzo/pkg/v3
 ----------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -23490,8 +23490,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 ================================================================
 
-github.com/minio/selfupdate
-https://github.com/minio/selfupdate
+github.com/lgcorzo/selfupdate
+https://github.com/lgcorzo/selfupdate
 ----------------------------------------------------------------
 
                                  Apache License
@@ -23698,8 +23698,8 @@ https://github.com/minio/selfupdate
 
 ================================================================
 
-github.com/minio/simdjson-go
-https://github.com/minio/simdjson-go
+github.com/lgcorzo/simdjson-go
+https://github.com/lgcorzo/simdjson-go
 ----------------------------------------------------------------
 
                                  Apache License
@@ -23906,8 +23906,8 @@ https://github.com/minio/simdjson-go
 
 ================================================================
 
-github.com/minio/sio
-https://github.com/minio/sio
+github.com/lgcorzo/sio
+https://github.com/lgcorzo/sio
 ----------------------------------------------------------------
 
                                  Apache License
@@ -24114,8 +24114,8 @@ https://github.com/minio/sio
 
 ================================================================
 
-github.com/minio/websocket
-https://github.com/minio/websocket
+github.com/lgcorzo/websocket
+https://github.com/lgcorzo/websocket
 ----------------------------------------------------------------
 Copyright (c) 2013 The Gorilla WebSocket Authors. All rights reserved.
 
@@ -24142,8 +24142,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================================
 
-github.com/minio/xxml
-https://github.com/minio/xxml
+github.com/lgcorzo/xxml
+https://github.com/lgcorzo/xxml
 ----------------------------------------------------------------
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -24175,8 +24175,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================================
 
-github.com/minio/zipindex
-https://github.com/minio/zipindex
+github.com/lgcorzo/zipindex
+https://github.com/lgcorzo/zipindex
 ----------------------------------------------------------------
 
                                  Apache License

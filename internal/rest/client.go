@@ -37,7 +37,7 @@ import (
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/mcontext"
-	xnet "github.com/minio/pkg/v3/net"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 const logSubsys = "internodes"

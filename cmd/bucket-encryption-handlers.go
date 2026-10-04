@@ -25,12 +25,12 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/minio/kms-go/kes"
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/kms-go/kes"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/kms"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 const (

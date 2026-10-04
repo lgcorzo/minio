@@ -38,8 +38,8 @@ import (
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/once"
 	"github.com/lgcorzo/minio/internal/store"
-	"github.com/minio/pkg/v3/certs"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/pkg/v3/certs"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 // Webhook constants

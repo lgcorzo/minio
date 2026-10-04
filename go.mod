@@ -48,23 +48,23 @@ require (
 	github.com/lib/pq v1.10.9
 	github.com/lithammer/shortuuid/v4 v4.2.0
 	github.com/miekg/dns v1.1.73
-	github.com/minio/cli v1.24.2
-	github.com/minio/console v1.7.7-0.20250905210349-2017f33b26e1
-	github.com/minio/csvparser v1.0.0
-	github.com/minio/dnscache v0.1.1
-	github.com/minio/dperf v0.6.3
-	github.com/minio/highwayhash v1.0.4-0.20251030100505-070ab1a87a76
-	github.com/minio/kms-go/kes v0.3.1
-	github.com/minio/kms-go/kms v0.5.1-0.20250225090116-4e64ce8d0f35
-	github.com/minio/madmin-go/v3 v3.0.109
-	github.com/minio/minio-go/v7 v7.0.91
-	github.com/minio/mux v1.9.2
-	github.com/minio/pkg/v3 v3.1.3
-	github.com/minio/selfupdate v0.6.0
-	github.com/minio/simdjson-go v0.4.5
-	github.com/minio/sio v0.4.1
-	github.com/minio/xxml v0.0.3
-	github.com/minio/zipindex v0.4.0
+	github.com/lgcorzo/cli v1.24.2
+	github.com/lgcorzo/console v1.7.7-0.20250905210349-2017f33b26e1
+	github.com/lgcorzo/csvparser v1.0.0
+	github.com/lgcorzo/dnscache v0.1.1
+	github.com/lgcorzo/dperf v0.6.3
+	github.com/lgcorzo/highwayhash v1.0.4-0.20251030100505-070ab1a87a76
+	github.com/lgcorzo/kms-go/kes v0.3.1
+	github.com/lgcorzo/kms-go/kms v0.5.1-0.20250225090116-4e64ce8d0f35
+	github.com/lgcorzo/madmin-go/v3 v3.0.109
+	github.com/lgcorzo/minio-go/v7 v7.0.91
+	github.com/lgcorzo/mux v1.9.2
+	github.com/lgcorzo/pkg/v3 v3.1.3
+	github.com/lgcorzo/selfupdate v0.6.0
+	github.com/lgcorzo/simdjson-go v0.4.5
+	github.com/lgcorzo/sio v0.4.1
+	github.com/lgcorzo/xxml v0.0.3
+	github.com/lgcorzo/zipindex v0.4.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/nats-io/nats-server/v2 v2.11.15
 	github.com/nats-io/nats.go v1.49.0
@@ -217,12 +217,12 @@ require (
 	github.com/mattn/go-localereader v0.0.1 // indirect
 	github.com/mattn/go-runewidth v0.0.16 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
-	github.com/minio/colorjson v1.0.8 // indirect
-	github.com/minio/crc64nvme v1.0.1 // indirect
-	github.com/minio/filepath v1.0.0 // indirect
-	github.com/minio/mc v0.0.0-20250313080218-cf909e1063a9 // indirect
-	github.com/minio/md5-simd v1.1.2 // indirect
-	github.com/minio/websocket v1.6.0 // indirect
+	github.com/lgcorzo/colorjson v1.0.8 // indirect
+	github.com/lgcorzo/crc64nvme v1.0.1 // indirect
+	github.com/lgcorzo/filepath v1.0.0 // indirect
+	github.com/lgcorzo/mc v0.0.0-20250313080218-cf909e1063a9 // indirect
+	github.com/lgcorzo/md5-simd v1.1.2 // indirect
+	github.com/lgcorzo/websocket v1.6.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee // indirect
 	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect

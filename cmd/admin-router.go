@@ -22,9 +22,9 @@ import (
 
 	"github.com/klauspost/compress/gzhttp"
 	"github.com/klauspost/compress/gzip"
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/mux"
+	"github.com/lgcorzo/mux"
 )
 
 const (

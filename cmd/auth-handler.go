@@ -41,7 +41,7 @@ import (
 	xjwt "github.com/lgcorzo/minio/internal/jwt"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/mcontext"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // Verify if request has JWT.

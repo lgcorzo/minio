@@ -28,13 +28,13 @@ import (
 	"path"
 	"time"
 
-	"github.com/minio/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7"
 	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
 	"github.com/lgcorzo/minio/internal/bucket/replication"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // PutBucketReplicationConfigHandler - PUT Bucket replication configuration.

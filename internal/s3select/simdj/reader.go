@@ -25,7 +25,7 @@ import (
 
 	"github.com/lgcorzo/minio/internal/s3select/json"
 	"github.com/lgcorzo/minio/internal/s3select/sql"
-	"github.com/minio/simdjson-go"
+	"github.com/lgcorzo/simdjson-go"
 )
 
 // Reader - JSON record reader for S3Select.

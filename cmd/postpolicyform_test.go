@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	minio "github.com/minio/minio-go/v7"
+	minio "github.com/lgcorzo/minio-go/v7"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 )
 

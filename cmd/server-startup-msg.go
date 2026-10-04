@@ -23,7 +23,7 @@ import (
 	"net/url"
 	"strings"
 
-	xnet "github.com/minio/pkg/v3/net"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 
 	"github.com/lgcorzo/minio/internal/color"
 	"github.com/lgcorzo/minio/internal/logger"

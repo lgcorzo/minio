@@ -19,7 +19,7 @@ package crypto
 
 import (
 	"github.com/lgcorzo/minio/internal/config"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 const (

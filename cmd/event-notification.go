@@ -29,7 +29,7 @@ import (
 	"github.com/lgcorzo/minio/internal/event"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/pubsub"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // EventNotifier - notifies external systems about events in MinIO.

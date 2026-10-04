@@ -26,10 +26,10 @@ import (
 	"strings"
 
 	"github.com/cespare/xxhash/v2"
-	"github.com/minio/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
 	"github.com/lgcorzo/minio/internal/config"
-	"github.com/minio/pkg/v3/ellipses"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/ellipses"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 // This file implements and supports ellipses pattern for

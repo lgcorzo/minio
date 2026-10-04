@@ -31,17 +31,17 @@ import (
 
 	jsoniter "github.com/json-iterator/go"
 	"github.com/klauspost/compress/zip"
-	"github.com/minio/kms-go/kes"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/tags"
+	"github.com/lgcorzo/kms-go/kes"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
 	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
 	"github.com/lgcorzo/minio/internal/bucket/versioning"
 	"github.com/lgcorzo/minio/internal/event"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/kms"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 const (

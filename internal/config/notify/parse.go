@@ -32,8 +32,8 @@ import (
 	"github.com/lgcorzo/minio/internal/event"
 	"github.com/lgcorzo/minio/internal/event/target"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/env"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/pkg/v3/env"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 	"github.com/rabbitmq/amqp091-go"
 )
 
@@ -1714,7 +1714,7 @@ func GetNotifyAMQP(amqpKVS map[string]config.KVS) (map[string]target.AMQPArgs, e
 		if k != config.Default {
 			deliveryModeEnv = deliveryModeEnv + config.Default + k
 		}
-		deliveryMode, err := strconv.Atoi(env.Get(deliveryModeEnv, kv.Get(target.AmqpDeliveryMode)))
+		deliveryMode, err := strconv.ParseUint(env.Get(deliveryModeEnv, kv.Get(target.AmqpDeliveryMode)), 10, 8)
 		if err != nil {
 			return nil, err
 		}

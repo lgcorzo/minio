@@ -26,8 +26,8 @@ import (
 	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 const (

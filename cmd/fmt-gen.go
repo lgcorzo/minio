@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 
 	"github.com/klauspost/compress/zip"
-	"github.com/minio/cli"
+	"github.com/lgcorzo/cli"
 )
 
 var fmtGenFlags = []cli.Flag{

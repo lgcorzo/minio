@@ -30,7 +30,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/bucket/replication"
 	"github.com/lgcorzo/minio/internal/crypto"
 	xhttp "github.com/lgcorzo/minio/internal/http"

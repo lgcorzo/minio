@@ -22,7 +22,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/minio/madmin-go/v3/logger/audit"
+	"github.com/lgcorzo/madmin-go/v3/logger/audit"
 
 	"github.com/lgcorzo/minio/internal/handlers"
 	xhttp "github.com/lgcorzo/minio/internal/http"

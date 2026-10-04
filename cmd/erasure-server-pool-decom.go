@@ -31,16 +31,16 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
 	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
 	"github.com/lgcorzo/minio/internal/bucket/replication"
 	"github.com/lgcorzo/minio/internal/bucket/versioning"
 	"github.com/lgcorzo/minio/internal/hash"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/console"
-	"github.com/minio/pkg/v3/env"
-	"github.com/minio/pkg/v3/workers"
+	"github.com/lgcorzo/pkg/v3/console"
+	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/workers"
 )
 
 // PoolDecommissionInfo currently decommissioning information

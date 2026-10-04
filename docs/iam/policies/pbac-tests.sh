@@ -8,7 +8,7 @@ pkill minio
 pkill kes
 rm -rf /tmp/xl
 
-go install -v github.com/minio/mc@master
+go install -v github.com/lgcorzo/mc@master
 cp -a $(go env GOPATH)/bin/mc ./mc
 
 if [ ! -f ./kes ]; then

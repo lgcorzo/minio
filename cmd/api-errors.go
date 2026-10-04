@@ -32,9 +32,9 @@ import (
 	"github.com/lgcorzo/minio/internal/ioutil"
 	"google.golang.org/api/googleapi"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/tags"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
 	"github.com/lgcorzo/minio/internal/bucket/replication"
@@ -48,7 +48,7 @@ import (
 	levent "github.com/lgcorzo/minio/internal/config/lambda/event"
 	"github.com/lgcorzo/minio/internal/event"
 	"github.com/lgcorzo/minio/internal/hash"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // APIError structure

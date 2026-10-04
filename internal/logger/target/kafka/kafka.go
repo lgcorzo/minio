@@ -38,7 +38,7 @@ import (
 	types "github.com/lgcorzo/minio/internal/logger/target/loggertypes"
 	"github.com/lgcorzo/minio/internal/once"
 	"github.com/lgcorzo/minio/internal/store"
-	xnet "github.com/minio/pkg/v3/net"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 // the suffix for the configured queue dir where the logs will be persisted.

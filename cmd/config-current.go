@@ -27,7 +27,7 @@ import (
 
 	"github.com/lgcorzo/minio/internal/config/browser"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/config"
 	"github.com/lgcorzo/minio/internal/config/api"
 	"github.com/lgcorzo/minio/internal/config/batch"
@@ -52,7 +52,7 @@ import (
 	"github.com/lgcorzo/minio/internal/crypto"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 func initHelp() {

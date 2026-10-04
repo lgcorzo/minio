@@ -32,8 +32,8 @@ import (
 	"github.com/lgcorzo/minio/internal/crypto"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
-	"github.com/minio/pkg/v3/policy"
-	"github.com/minio/zipindex"
+	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/lgcorzo/zipindex"
 )
 
 const (

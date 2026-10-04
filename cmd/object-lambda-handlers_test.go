@@ -30,7 +30,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/minio/minio-go/v7/pkg/signer"
+	"github.com/lgcorzo/minio-go/v7/pkg/signer"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/config"
 	"github.com/lgcorzo/minio/internal/config/lambda"

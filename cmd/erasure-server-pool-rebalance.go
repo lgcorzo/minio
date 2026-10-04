@@ -31,7 +31,7 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/lithammer/shortuuid/v4"
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
 	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
 	"github.com/lgcorzo/minio/internal/bucket/replication"
@@ -39,8 +39,8 @@ import (
 	"github.com/lgcorzo/minio/internal/hash"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/env"
-	"github.com/minio/pkg/v3/workers"
+	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/workers"
 )
 
 //go:generate msgp -file $GOFILE -unexported

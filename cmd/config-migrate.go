@@ -33,8 +33,8 @@ import (
 	"github.com/lgcorzo/minio/internal/config/storageclass"
 	"github.com/lgcorzo/minio/internal/event/target"
 	"github.com/lgcorzo/minio/internal/logger"
-	xnet "github.com/minio/pkg/v3/net"
-	"github.com/minio/pkg/v3/quick"
+	xnet "github.com/lgcorzo/pkg/v3/net"
+	"github.com/lgcorzo/pkg/v3/quick"
 )
 
 // Save config file to corresponding backend

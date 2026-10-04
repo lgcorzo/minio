@@ -35,7 +35,7 @@ import (
 	xhttp "github.com/lgcorzo/minio/internal/http"
 
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 const (

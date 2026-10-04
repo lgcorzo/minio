@@ -34,7 +34,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
 	"github.com/lgcorzo/minio/internal/bucket/object/lock"
 	"github.com/lgcorzo/minio/internal/bucket/replication"
@@ -42,7 +42,7 @@ import (
 	"github.com/lgcorzo/minio/internal/config/heal"
 	"github.com/lgcorzo/minio/internal/event"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
-	"github.com/minio/pkg/v3/console"
+	"github.com/lgcorzo/pkg/v3/console"
 	uatomic "go.uber.org/atomic"
 )
 

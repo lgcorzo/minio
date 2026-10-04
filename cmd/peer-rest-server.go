@@ -36,15 +36,15 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/klauspost/compress/zstd"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/madmin-go/v3/logger/log"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3/logger/log"
 	"github.com/lgcorzo/minio/internal/bucket/bandwidth"
 	"github.com/lgcorzo/minio/internal/event"
 	"github.com/lgcorzo/minio/internal/grid"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/pubsub"
-	"github.com/minio/mux"
+	"github.com/lgcorzo/mux"
 )
 
 // To abstract a node over network.

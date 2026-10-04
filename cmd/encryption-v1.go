@@ -35,7 +35,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/minio/kms-go/kes"
+	"github.com/lgcorzo/kms-go/kes"
 	"github.com/lgcorzo/minio/internal/crypto"
 	"github.com/lgcorzo/minio/internal/etag"
 	"github.com/lgcorzo/minio/internal/hash"
@@ -43,7 +43,7 @@ import (
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/kms"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/sio"
+	"github.com/lgcorzo/sio"
 )
 
 var (

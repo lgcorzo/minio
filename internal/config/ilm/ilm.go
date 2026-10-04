@@ -21,7 +21,7 @@ import (
 	"strconv"
 
 	"github.com/lgcorzo/minio/internal/config"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/env"
 )
 
 // DefaultKVS default configuration values for ILM subsystem

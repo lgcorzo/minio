@@ -29,13 +29,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/minio/cli"
+	"github.com/lgcorzo/cli"
 	"github.com/lgcorzo/minio/internal/color"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/console"
-	"github.com/minio/pkg/v3/env"
-	"github.com/minio/pkg/v3/trie"
-	"github.com/minio/pkg/v3/words"
+	"github.com/lgcorzo/pkg/v3/console"
+	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/lgcorzo/pkg/v3/trie"
+	"github.com/lgcorzo/pkg/v3/words"
 )
 
 // GlobalFlags - global flags for minio.

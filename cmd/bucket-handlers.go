@@ -41,13 +41,13 @@ import (
 	"sync"
 
 	"github.com/google/uuid"
-	"github.com/minio/mux"
+	"github.com/lgcorzo/mux"
 	"github.com/valyala/bytebufferpool"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio-go/v7/pkg/tags"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/auth"
 	sse "github.com/lgcorzo/minio/internal/bucket/encryption"
 	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
@@ -62,8 +62,8 @@ import (
 	"github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/kms"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/policy"
-	"github.com/minio/pkg/v3/sync/errgroup"
+	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/lgcorzo/pkg/v3/sync/errgroup"
 )
 
 const (

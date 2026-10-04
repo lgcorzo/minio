@@ -21,7 +21,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/pubsub"
 )
 

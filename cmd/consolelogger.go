@@ -24,13 +24,13 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/madmin-go/v3/logger/log"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3/logger/log"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/logger/target/console"
 	types "github.com/lgcorzo/minio/internal/logger/target/loggertypes"
 	"github.com/lgcorzo/minio/internal/pubsub"
-	xnet "github.com/minio/pkg/v3/net"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 // number of log messages to buffer

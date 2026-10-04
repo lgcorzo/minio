@@ -26,7 +26,7 @@ import (
 
 	"github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/sio"
+	"github.com/lgcorzo/sio"
 )
 
 const (

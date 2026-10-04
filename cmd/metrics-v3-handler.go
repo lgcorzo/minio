@@ -27,8 +27,8 @@ import (
 
 	"github.com/lgcorzo/minio/internal/config"
 	"github.com/lgcorzo/minio/internal/mcontext"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/env"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/env"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )

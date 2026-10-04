@@ -35,8 +35,8 @@ import (
 	"github.com/lgcorzo/minio/internal/hash"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/minio/pkg/v3/policy"
-	xxml "github.com/minio/xxml"
+	"github.com/lgcorzo/pkg/v3/policy"
+	xxml "github.com/lgcorzo/xxml"
 )
 
 const (

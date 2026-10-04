@@ -39,10 +39,10 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/klauspost/compress/gzhttp"
-	miniogo "github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/tags"
+	miniogo "github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7/pkg/credentials"
+	"github.com/lgcorzo/minio-go/v7/pkg/encrypt"
+	"github.com/lgcorzo/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/amztime"
 	"github.com/lgcorzo/minio/internal/auth"
 	sse "github.com/lgcorzo/minio/internal/bucket/encryption"
@@ -61,8 +61,8 @@ import (
 	"github.com/lgcorzo/minio/internal/kms"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/s3select"
-	"github.com/minio/mux"
-	"github.com/minio/pkg/v3/policy"
+	"github.com/lgcorzo/mux"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // supportedHeadGetReqParams - supported request parameters for GET and HEAD presigned request.
