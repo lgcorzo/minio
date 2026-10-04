@@ -22,7 +22,7 @@ import (
 	"io/fs"
 	"os"
 
-	"github.com/minio/minio/internal/disk"
+	"github.com/lgcorzo/minio/internal/disk"
 )
 
 var (
@@ -41,7 +41,12 @@ var (
 func ReadFileWithFileInfo(name string) ([]byte, fs.FileInfo, error) {
 	f, err := OsOpenFile(name, readMode, 0o666)
 	if err != nil {
-		return nil, nil, err
+		if os.IsPermission(err) && readMode != os.O_RDONLY {
+			f, err = OsOpenFile(name, os.O_RDONLY, 0o666)
+		}
+		if err != nil {
+			return nil, nil, err
+		}
 	}
 	defer f.Close()
 
@@ -66,7 +71,12 @@ func ReadFile(name string) ([]byte, error) {
 	// Don't use os.ReadFile, since it doesn't pass NO_ATIME when present.
 	f, err := OsOpenFile(name, readMode, 0o666)
 	if err != nil {
-		return nil, err
+		if os.IsPermission(err) && readMode != os.O_RDONLY {
+			f, err = OsOpenFile(name, os.O_RDONLY, 0o666)
+		}
+		if err != nil {
+			return nil, err
+		}
 	}
 	defer f.Close()
 	st, err := f.Stat()

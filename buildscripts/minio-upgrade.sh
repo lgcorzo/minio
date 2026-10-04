@@ -74,7 +74,7 @@ __init__() {
 	export GOPATH=/tmp/gopath
 	export PATH=${PATH}:${GOPATH}/bin
 
-	go install github.com/minio/mc@latest
+	go install github.com/lgcorzo/mc@latest
 
 	## this is needed because github actions don't have
 	## docker-compose on all runners

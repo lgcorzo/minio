@@ -25,10 +25,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/minio/dperf/pkg/dperf"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio/internal/auth"
-	xioutil "github.com/minio/minio/internal/ioutil"
+	"github.com/lgcorzo/dperf/pkg/dperf"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio/internal/auth"
+	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 )
 
 const speedTest = "speedtest"

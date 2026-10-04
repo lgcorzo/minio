@@ -30,17 +30,17 @@ import (
 	"unicode"
 
 	"github.com/dustin/go-humanize"
-	"github.com/minio/minio-go/v7/pkg/s3utils"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio/internal/grid"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/minio-go/v7/pkg/s3utils"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio/internal/grid"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 
-	"github.com/minio/minio/internal/amztime"
-	"github.com/minio/minio/internal/config/dns"
-	"github.com/minio/minio/internal/crypto"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/minio/internal/mcontext"
+	"github.com/lgcorzo/minio/internal/amztime"
+	"github.com/lgcorzo/minio/internal/config/dns"
+	"github.com/lgcorzo/minio/internal/crypto"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/minio/internal/mcontext"
 )
 
 const (

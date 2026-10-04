@@ -34,8 +34,8 @@ import (
 	"net/http"
 	"os"
 
-	cr "github.com/minio/minio-go/v7/pkg/credentials"
-	cmd "github.com/minio/minio/cmd"
+	cr "github.com/lgcorzo/minio-go/v7/pkg/credentials"
+	cmd "github.com/lgcorzo/minio/cmd"
 )
 
 func main() {

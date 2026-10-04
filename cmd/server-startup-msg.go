@@ -23,10 +23,10 @@ import (
 	"net/url"
 	"strings"
 
-	xnet "github.com/minio/pkg/v3/net"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 
-	"github.com/minio/minio/internal/color"
-	"github.com/minio/minio/internal/logger"
+	"github.com/lgcorzo/minio/internal/color"
+	"github.com/lgcorzo/minio/internal/logger"
 )
 
 // generates format string depending on the string length and padding.

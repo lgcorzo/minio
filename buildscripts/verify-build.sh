@@ -220,8 +220,8 @@ function __init__() {
 	mkdir -p "$MINT_DATA_DIR"
 
 	MC_BUILD_DIR="mc-$RANDOM"
-	if ! git clone --quiet https://github.com/minio/mc "$MC_BUILD_DIR"; then
-		echo "failed to download https://github.com/minio/mc"
+	if ! git clone --quiet https://github.com/lgcorzo/mc "$MC_BUILD_DIR"; then
+		echo "failed to download https://github.com/lgcorzo/mc"
 		purge "${MC_BUILD_DIR}"
 		exit 1
 	fi

@@ -30,13 +30,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio/internal/bucket/bandwidth"
-	"github.com/minio/minio/internal/grid"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/minio/internal/rest"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio/internal/bucket/bandwidth"
+	"github.com/lgcorzo/minio/internal/grid"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/minio/internal/rest"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 // client to talk to peer Nodes.

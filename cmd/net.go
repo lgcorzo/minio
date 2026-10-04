@@ -25,10 +25,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/minio/internal/logger"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/minio/internal/logger"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 )
 
 var (

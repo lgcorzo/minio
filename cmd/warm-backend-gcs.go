@@ -24,12 +24,12 @@ import (
 	"io"
 
 	"cloud.google.com/go/storage"
-	"github.com/minio/madmin-go/v3"
+	"github.com/lgcorzo/madmin-go/v3"
 	"google.golang.org/api/googleapi"
 	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
 
-	xioutil "github.com/minio/minio/internal/ioutil"
+	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 )
 
 type warmBackendGCS struct {

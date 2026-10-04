@@ -32,16 +32,16 @@ import (
 	"time"
 
 	"github.com/klauspost/readahead"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/minio/internal/config/storageclass"
-	"github.com/minio/minio/internal/crypto"
-	"github.com/minio/minio/internal/hash"
-	xhttp "github.com/minio/minio/internal/http"
-	xioutil "github.com/minio/minio/internal/ioutil"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/pkg/v3/mimedb"
-	"github.com/minio/pkg/v3/sync/errgroup"
-	"github.com/minio/sio"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio/internal/config/storageclass"
+	"github.com/lgcorzo/minio/internal/crypto"
+	"github.com/lgcorzo/minio/internal/hash"
+	xhttp "github.com/lgcorzo/minio/internal/http"
+	xioutil "github.com/lgcorzo/minio/internal/ioutil"
+	"github.com/lgcorzo/minio/internal/logger"
+	"github.com/lgcorzo/pkg/v3/mimedb"
+	"github.com/lgcorzo/pkg/v3/sync/errgroup"
+	"github.com/lgcorzo/sio"
 )
 
 func (er erasureObjects) getUploadIDDir(bucket, object, uploadID string) string {

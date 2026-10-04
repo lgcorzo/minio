@@ -33,10 +33,10 @@ import (
 	"testing"
 
 	"github.com/klauspost/compress/s2"
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/config/compress"
-	"github.com/minio/minio/internal/crypto"
-	"github.com/minio/pkg/v3/trie"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/minio/internal/config/compress"
+	"github.com/lgcorzo/minio/internal/crypto"
+	"github.com/lgcorzo/pkg/v3/trie"
 )
 
 func pathJoinOld(elem ...string) string {

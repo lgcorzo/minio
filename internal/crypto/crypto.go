@@ -20,7 +20,7 @@ package crypto
 import (
 	"crypto/tls"
 
-	"github.com/minio/sio"
+	"github.com/lgcorzo/sio"
 )
 
 // DARECiphers returns a list of supported cipher suites

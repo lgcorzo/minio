@@ -1,4 +1,4 @@
-module github.com/minio/minio
+module github.com/lgcorzo/minio
 
 go 1.26.0
 
@@ -9,7 +9,7 @@ tool (
 )
 
 require (
-	aead.dev/mtls v0.2.1
+	aead.dev/mtls v0.4.0
 	cloud.google.com/go/storage v1.56.0
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.23.1
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.14.1
@@ -45,26 +45,26 @@ require (
 	github.com/klauspost/pgzip v1.2.6
 	github.com/klauspost/readahead v1.4.0
 	github.com/klauspost/reedsolomon v1.12.4
+	github.com/lgcorzo/cli v1.24.2-lgcorzo.1
+	github.com/lgcorzo/console v1.7.8-lgcorzo.1
+	github.com/lgcorzo/csvparser v1.0.0-lgcorzo.1
+	github.com/lgcorzo/dnscache v0.1.1-lgcorzo.1
+	github.com/lgcorzo/dperf v0.6.3-lgcorzo.1
+	github.com/lgcorzo/highwayhash v1.0.4-lgcorzo.1
+	github.com/lgcorzo/kms-go/kes v0.3.1-lgcorzo.1
+	github.com/lgcorzo/kms-go/kms v0.5.1-lgcorzo.1
+	github.com/lgcorzo/madmin-go/v3 v3.0.109-lgcorzo.1
+	github.com/lgcorzo/minio-go/v7 v7.0.91-lgcorzo.2
+	github.com/lgcorzo/mux v1.9.2-lgcorzo.1
+	github.com/lgcorzo/pkg/v3 v3.1.3-lgcorzo.1
+	github.com/lgcorzo/selfupdate v0.6.0-lgcorzo.1
+	github.com/lgcorzo/simdjson-go v0.4.5-lgcorzo.1
+	github.com/lgcorzo/sio v0.4.1-lgcorzo.1
+	github.com/lgcorzo/xxml v0.0.3-lgcorzo.1
+	github.com/lgcorzo/zipindex v0.4.0-lgcorzo.1
 	github.com/lib/pq v1.10.9
 	github.com/lithammer/shortuuid/v4 v4.2.0
 	github.com/miekg/dns v1.1.73
-	github.com/minio/cli v1.24.2
-	github.com/minio/console v1.7.7-0.20250905210349-2017f33b26e1
-	github.com/minio/csvparser v1.0.0
-	github.com/minio/dnscache v0.1.1
-	github.com/minio/dperf v0.6.3
-	github.com/minio/highwayhash v1.0.4-0.20251030100505-070ab1a87a76
-	github.com/minio/kms-go/kes v0.3.1
-	github.com/minio/kms-go/kms v0.5.1-0.20250225090116-4e64ce8d0f35
-	github.com/minio/madmin-go/v3 v3.0.109
-	github.com/minio/minio-go/v7 v7.0.91
-	github.com/minio/mux v1.9.2
-	github.com/minio/pkg/v3 v3.1.3
-	github.com/minio/selfupdate v0.6.0
-	github.com/minio/simdjson-go v0.4.5
-	github.com/minio/sio v0.4.1
-	github.com/minio/xxml v0.0.3
-	github.com/minio/zipindex v0.4.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/nats-io/nats-server/v2 v2.11.15
 	github.com/nats-io/nats.go v1.49.0
@@ -131,8 +131,10 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/charmbracelet/bubbles v0.20.0 // indirect
 	github.com/charmbracelet/bubbletea v1.3.4 // indirect
-	github.com/charmbracelet/lipgloss v1.0.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/lipgloss v1.1.0 // indirect
 	github.com/charmbracelet/x/ansi v0.8.0 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13-0.20250311204145-2c3ea96c31dd // indirect
 	github.com/charmbracelet/x/term v0.2.1 // indirect
 	github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
@@ -187,7 +189,6 @@ require (
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.20 // indirect
 	github.com/googleapis/gax-go/v2 v2.24.0 // indirect
-	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/gorilla/websocket v1.5.4-0.20250319132907-e064f32e3674 // indirect
 	github.com/grafana/regexp v0.0.0-20250905093917-f7b3be9d1853 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
@@ -209,6 +210,12 @@ require (
 	github.com/lestrrat-go/iter v1.0.2 // indirect
 	github.com/lestrrat-go/jwx/v2 v2.1.4 // indirect
 	github.com/lestrrat-go/option v1.0.1 // indirect
+	github.com/lgcorzo/colorjson v1.0.8-lgcorzo.1 // indirect
+	github.com/lgcorzo/crc64nvme v1.0.1-lgcorzo.1 // indirect
+	github.com/lgcorzo/filepath v1.0.0-lgcorzo.1 // indirect
+	github.com/lgcorzo/mc v0.1.0-lgcorzo.1 // indirect
+	github.com/lgcorzo/md5-simd v1.1.2-lgcorzo.1 // indirect
+	github.com/lgcorzo/websocket v1.6.0-lgcorzo.1 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/lufia/plan9stats v0.0.0-20250317134145-8bc96cf8fc35 // indirect
 	github.com/mattn/go-colorable v0.1.15 // indirect
@@ -217,12 +224,7 @@ require (
 	github.com/mattn/go-localereader v0.0.1 // indirect
 	github.com/mattn/go-runewidth v0.0.16 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
-	github.com/minio/colorjson v1.0.8 // indirect
-	github.com/minio/crc64nvme v1.0.1 // indirect
-	github.com/minio/filepath v1.0.0 // indirect
-	github.com/minio/mc v0.0.0-20250313080218-cf909e1063a9 // indirect
-	github.com/minio/md5-simd v1.1.2 // indirect
-	github.com/minio/websocket v1.6.0 // indirect
+	github.com/minio/highwayhash v1.0.4-0.20251030100505-070ab1a87a76 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee // indirect
 	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
@@ -257,6 +259,7 @@ require (
 	github.com/unrolled/secure v1.17.0 // indirect
 	github.com/vbauerster/mpb/v8 v8.9.3 // indirect
 	github.com/xdg/stringprep v1.0.3 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.5.33 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
@@ -284,3 +287,5 @@ require (
 replace github.com/go-openapi/testify/v2 => github.com/go-openapi/testify/v2 v2.4.1
 
 replace github.com/coreos/go-systemd/v22 => github.com/coreos/go-systemd/v22 v22.5.0
+
+replace aead.dev/mtls => github.com/lgcorzo/mtls v0.4.1-lgcorzo.3

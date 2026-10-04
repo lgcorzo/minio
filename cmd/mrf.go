@@ -30,8 +30,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/wildcard"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/pkg/v3/wildcard"
 	"github.com/tinylib/msgp/msgp"
 )
 

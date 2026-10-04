@@ -4,7 +4,7 @@ MinIO uses a key-management-system (KMS) to support SSE-S3. If a client requests
 
 ## Quick Start
 
-MinIO supports multiple KMS implementations via our [KES](https://github.com/minio/kes#kes) project. We run a KES instance at `https://play.min.io:7373` for you to experiment and quickly get started. To run MinIO with a KMS just fetch the root identity, set the following environment variables and then start your MinIO server. If you haven't installed MinIO, yet, then follow the MinIO [install instructions](https://docs.min.io/community/minio-object-store/operations/deployments/baremetal-deploy-minio-on-redhat-linux.html) first.
+MinIO supports multiple KMS implementations via our [KES](https://github.com/lgcorzo/kes#kes) project. We run a KES instance at `https://play.min.io:7373` for you to experiment and quickly get started. To run MinIO with a KMS just fetch the root identity, set the following environment variables and then start your MinIO server. If you haven't installed MinIO, yet, then follow the MinIO [install instructions](https://docs.min.io/community/minio-object-store/operations/deployments/baremetal-deploy-minio-on-redhat-linux.html) first.
 
 ### 1. Fetch the root identity
 
@@ -57,20 +57,20 @@ The main difference between various MinIO-KMS deployments is the KMS implementat
 
 | KMS                                                                                          | Purpose                                                           |
 |:---------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
-| [Hashicorp Vault](https://github.com/minio/kes/wiki/Hashicorp-Vault-Keystore)                | Local KMS. MinIO and KMS on-prem (**Recommended**)                |
-| [AWS-KMS + SecretsManager](https://github.com/minio/kes/wiki/AWS-SecretsManager)             | Cloud KMS. MinIO in combination with a managed KMS installation   |
-| [Gemalto KeySecure /Thales CipherTrust](https://github.com/minio/kes/wiki/Gemalto-KeySecure) | Local KMS. MinIO and KMS On-Premises.                             |
-| [Google Cloud Platform SecretManager](https://github.com/minio/kes/wiki/GCP-SecretManager)   | Cloud KMS. MinIO in combination with a managed KMS installation   |
-| [FS](https://github.com/minio/kes/wiki/Filesystem-Keystore)                                  | Local testing or development (**Not recommended for production**) |
+| [Hashicorp Vault](https://github.com/lgcorzo/kes/wiki/Hashicorp-Vault-Keystore)                | Local KMS. MinIO and KMS on-prem (**Recommended**)                |
+| [AWS-KMS + SecretsManager](https://github.com/lgcorzo/kes/wiki/AWS-SecretsManager)             | Cloud KMS. MinIO in combination with a managed KMS installation   |
+| [Gemalto KeySecure /Thales CipherTrust](https://github.com/lgcorzo/kes/wiki/Gemalto-KeySecure) | Local KMS. MinIO and KMS On-Premises.                             |
+| [Google Cloud Platform SecretManager](https://github.com/lgcorzo/kes/wiki/GCP-SecretManager)   | Cloud KMS. MinIO in combination with a managed KMS installation   |
+| [FS](https://github.com/lgcorzo/kes/wiki/Filesystem-Keystore)                                  | Local testing or development (**Not recommended for production**) |
 
-The MinIO-KES configuration is always the same - regardless of the underlying KMS implementation. Checkout the MinIO-KES [configuration example](https://github.com/minio/kes/wiki/MinIO-Object-Storage).
+The MinIO-KES configuration is always the same - regardless of the underlying KMS implementation. Checkout the MinIO-KES [configuration example](https://github.com/lgcorzo/kes/wiki/MinIO-Object-Storage).
 
 ### Further references
 
 - [Run MinIO with TLS / HTTPS](https://docs.min.io/community/minio-object-store/operations/network-encryption.html)
-- [Tweak the KES server configuration](https://github.com/minio/kes/wiki/Configuration)
-- [Run a load balancer in front of KES](https://github.com/minio/kes/wiki/TLS-Proxy)
-- [Understand the KES server concepts](https://github.com/minio/kes/wiki/Concepts)
+- [Tweak the KES server configuration](https://github.com/lgcorzo/kes/wiki/Configuration)
+- [Run a load balancer in front of KES](https://github.com/lgcorzo/kes/wiki/TLS-Proxy)
+- [Understand the KES server concepts](https://github.com/lgcorzo/kes/wiki/Concepts)
 
 ## Auto Encryption
 

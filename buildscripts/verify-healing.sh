@@ -123,7 +123,7 @@ function __init__() {
 		if which mc >/dev/null 2>&1; then
 			cp "$(which mc)" /tmp/mc
 		else
-			go install github.com/minio/mc@master
+			go install github.com/lgcorzo/mc@master
 			cp "$(go env GOPATH)/bin/mc" /tmp/mc
 		fi
 		chmod +x /tmp/mc

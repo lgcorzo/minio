@@ -1,12 +1,12 @@
 # MinIO Community Helm Chart
 
-[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/minio/minio/blob/master/LICENSE)
+[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/lgcorzo/minio/blob/master/LICENSE)
 
 MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. It is API compatible with Amazon S3 cloud storage service. Use MinIO to build high performance infrastructure for machine learning, analytics and application data workloads.
 
 | IMPORTANT |
 | -------------------------- |
-| This Helm chart is community built, maintained, and supported. MinIO does not guarantee support for any given bug, feature request, or update referencing this chart. <br/><br/> MinIO publishes a separate [MinIO Kubernetes Operator and Tenant Helm Chart](https://github.com/minio/operator/tree/master/helm) that is officially maintained and supported. MinIO strongly recommends using the MinIO Kubernetes Operator for production deployments. See [Deploy Operator With Helm](https://docs.min.io/community/minio-object-store/operations/deployments/k8s-deploy-operator-helm-on-kubernetes.html?ref=github) for additional documentation. |
+| This Helm chart is community built, maintained, and supported. MinIO does not guarantee support for any given bug, feature request, or update referencing this chart. <br/><br/> MinIO publishes a separate [MinIO Kubernetes Operator and Tenant Helm Chart](https://github.com/lgcorzo/operator/tree/master/helm) that is officially maintained and supported. MinIO strongly recommends using the MinIO Kubernetes Operator for production deployments. See [Deploy Operator With Helm](https://docs.min.io/community/minio-object-store/operations/deployments/k8s-deploy-operator-helm-on-kubernetes.html?ref=github) for additional documentation. |
 
 ## Introduction
 
@@ -15,7 +15,7 @@ This chart bootstraps MinIO Cluster on [Kubernetes](http://kubernetes.io) using 
 ## Prerequisites
 
 - Helm cli with Kubernetes cluster configured.
-- PV provisioner support in the underlying infrastructure. (We recommend using <https://github.com/minio/direct-csi>)
+- PV provisioner support in the underlying infrastructure. (We recommend using <https://github.com/lgcorzo/direct-csi>)
 - Use Kubernetes version v1.19 and later for best experience.
 
 ## Configure MinIO Helm repo

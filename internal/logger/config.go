@@ -26,12 +26,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/minio/pkg/v3/env"
-	xnet "github.com/minio/pkg/v3/net"
+	"github.com/lgcorzo/pkg/v3/env"
+	xnet "github.com/lgcorzo/pkg/v3/net"
 
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/minio/internal/logger/target/http"
-	"github.com/minio/minio/internal/logger/target/kafka"
+	"github.com/lgcorzo/minio/internal/config"
+	"github.com/lgcorzo/minio/internal/logger/target/http"
+	"github.com/lgcorzo/minio/internal/logger/target/kafka"
 )
 
 // Console logger target

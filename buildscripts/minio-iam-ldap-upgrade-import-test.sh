@@ -3,7 +3,7 @@
 # This script is used to test the migration of IAM content from old minio
 # instance to new minio instance.
 #
-# To run it locally, start the LDAP server in github.com/minio/minio-iam-testing
+# To run it locally, start the LDAP server in github.com/lgcorzo/minio-iam-testing
 # repo (e.g. make podman-run), and then run this script.
 #
 # This script assumes that LDAP server is at:
@@ -31,7 +31,7 @@ __init__() {
 		echo "mc is already installed"
 	else
 		echo "Installing mc:"
-		go install github.com/minio/mc@latest
+		go install github.com/lgcorzo/mc@latest
 	fi
 
 	if [ ! -x ./minio.${OLD_VERSION} ]; then

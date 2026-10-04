@@ -68,9 +68,54 @@ For MicroK8s deployment details, see **[MicroK8s Deployment Guide](docs/microk8s
 
 ---
 
+### 4. Sovereign MinIO Ecosystem: Maintained Repositories in `@lgcorzo`
+
+To guarantee long-term sovereign support, full supply-chain independence, and continuous security patching for the Dark Gravity factory and production environments, the complete MinIO ecosystem of servers, clients, acceleration libraries, and core dependencies has been preserved and actively maintained under **`@lgcorzo`**:
+
+| Category | Repository | Description | Key Capabilities |
+| :--- | :--- | :--- | :--- |
+| **Core Storage & Server** | [`lgcorzo/minio`](https://github.com/lgcorzo/minio) | High-performance Object Storage Server | Multi-tenant S3-compatible engine, Erasure Coding, Tiering, Decommissioning |
+| | [`lgcorzo/mc`](https://github.com/lgcorzo/mc) | MinIO Client CLI Tool | High-speed mirror, diff, administration, encryption management, batch processing |
+| | [`lgcorzo/kes`](https://github.com/lgcorzo/kes) | Key Encryption Server (KES) | High-performance KMS proxy (Vault, AWS-KMS, GCP-KMS, Azure Key Vault, Dev KMS) |
+| | [`lgcorzo/console`](https://github.com/lgcorzo/console) | Graphical Web Administration Interface | Visual bucket policy management, IAM administration, observability metrics dashboard |
+| | [`lgcorzo/operator`](https://github.com/lgcorzo/operator) | Kubernetes Operator | Declarative MinIO Tenant orchestration, CRD management, and cluster automation |
+| | [`lgcorzo/docs`](https://github.com/lgcorzo/docs) | Documentation Source & Engine | Sphinx-based documentation build system and architecture references |
+| | [`lgcorzo/sidekick`](https://github.com/lgcorzo/sidekick) | High-Performance S3 Proxy | Low-latency client-side load balancing and failover sidecar proxy |
+| **SDKs & APIs** | [`lgcorzo/minio-go`](https://github.com/lgcorzo/minio-go) | Official Go Client SDK | Idiomatic Go SDK for object storage operations, multipart uploads, STS, and presigned URLs |
+| | [`lgcorzo/madmin-go`](https://github.com/lgcorzo/madmin-go) | MinIO Admin Go Library | Administrative APIs for server configuration, user management, healing, and decommissioning |
+| | [`lgcorzo/kms-go`](https://github.com/lgcorzo/kms-go) | Cryptographic KMS Client Library | Go client primitives for key creation, DEK derivation, and envelope encryption via KES |
+| | [`lgcorzo/pkg`](https://github.com/lgcorzo/pkg) | Common Go Utility Packages | Cryptographic certificates, hashing routines, and shared helper primitives |
+| | [`lgcorzo/mtls`](https://github.com/lgcorzo/mtls) | Mutual TLS Utilities | Zero-trust inter-node cryptographic identity verification and mTLS configuration |
+| **Hardware & SIMD Acceleration** | [`lgcorzo/sha256-simd`](https://github.com/lgcorzo/sha256-simd) | SIMD-Accelerated SHA256 | AVX-512 and ARMv8 Crypto Extensions SHA256 acceleration (up to 100x speedup) |
+| | [`lgcorzo/md5-simd`](https://github.com/lgcorzo/md5-simd) | SIMD-Accelerated MD5 | Parallel AVX-512 and AVX2 MD5 calculation (up to 8x acceleration) |
+| | [`lgcorzo/highwayhash`](https://github.com/lgcorzo/highwayhash) | SIMD HighwayHash | High-speed native hashing (>10 GB/s per core on Intel & ARM assembly) |
+| | [`lgcorzo/crc64nvme`](https://github.com/lgcorzo/crc64nvme) | NVMe CRC64 SIMD Acceleration | Fast carryless-multiplication CRC64 checksums for NVMe storage devices |
+| | [`lgcorzo/simdjson-go`](https://github.com/lgcorzo/simdjson-go) | High-Throughput SIMD JSON Parser | Gigabytes/sec JSON parsing leveraging vector instructions for event & metadata processing |
+| | [`lgcorzo/sio`](https://github.com/lgcorzo/sio) | Data At Rest Encryption (DARE) | Streaming authenticated encryption format for secure on-disk persistence |
+| | [`lgcorzo/asm2plan9s`](https://github.com/lgcorzo/asm2plan9s) | Assembly Bytecode Converter | Converts AVX512/AVX2/ARM assembly instructions into Go Plan9 bytecode |
+| **Networking & Routing** | [`lgcorzo/mux`](https://github.com/lgcorzo/mux) | High-Performance Request Router | Matcher and multiplexer for incoming S3 REST and STS API routes |
+| | [`lgcorzo/websocket`](https://github.com/lgcorzo/websocket) | Low-Latency WebSocket Engine | High-throughput duplex communication for real-time console and bucket notifications |
+| | [`lgcorzo/dnscache`](https://github.com/lgcorzo/dnscache) | DNS Lookup Caching | In-memory DNS cache minimizing latency on distributed multi-cluster lookups |
+| **Data Formats & Helpers** | [`lgcorzo/zipindex`](https://github.com/lgcorzo/zipindex) | Fast ZIP Archive Indexer | Compressed index lookup enabling direct random reads of files inside ZIP archives |
+| | [`lgcorzo/xxml`](https://github.com/lgcorzo/xxml) | Extended XML 1.0 Parser | Robust XML namespace and control character support for strict S3 API compliance |
+| | [`lgcorzo/colorjson`](https://github.com/lgcorzo/colorjson) | Colorized JSON Encoder | Human-readable terminal logging and JSON inspection |
+| | [`lgcorzo/csvparser`](https://github.com/lgcorzo/csvparser) | High-Performance CSV Parser | Streaming CSV parsing engine for S3 Select query execution |
+| | [`lgcorzo/filepath`](https://github.com/lgcorzo/filepath) | Lexically Sorted Flat Path Walker | High-efficiency directory walking and flat object key enumeration |
+| | [`lgcorzo/selfupdate`](https://github.com/lgcorzo/selfupdate) | Binary Self-Updating Library | Secure signature-verified self-upgrades for CLI binaries |
+| | [`lgcorzo/cli`](https://github.com/lgcorzo/cli) | Minimalist CLI Framework | Lightweight command-line argument parser for distributed helper utilities |
+| **Testing & Tooling** | [`lgcorzo/mint`](https://github.com/lgcorzo/mint) | Integration Test & Verification Suite | End-to-end multi-language test suite certifying S3 protocol and functional compliance |
+| | [`lgcorzo/warp`](https://github.com/lgcorzo/warp) | S3 Benchmarking Tool | High-throughput synthetic benchmark suite measuring IOPS and latency |
+| | [`lgcorzo/dperf`](https://github.com/lgcorzo/dperf) | Distributed Performance Benchmark | Stress-testing network bandwidth, disk I/O, and CPU throughput across storage nodes |
+| | [`lgcorzo/certgen`](https://github.com/lgcorzo/certgen) | TLS Certificate Generator | Standalone zero-dependency x.509 TLS certificate generation utility |
+| | [`lgcorzo/pkger`](https://github.com/lgcorzo/pkger) | Binary Packaging Utility | Multi-architecture DEB, RPM, and APK packaging automation tool |
+| | [`lgcorzo/multipart-debug`](https://github.com/lgcorzo/multipart-debug) | S3 Multipart Upload Diagnostic Tool | Low-level multipart upload debugging, part alignment, and encryption validation |
+| | [`lgcorzo/minio-cf`](https://github.com/lgcorzo/minio-cf) | Cloud Foundry Integration | Support for deploying and orchestrating MinIO within Cloud Foundry estates |
+
+---
+
 # MinIO Quickstart Guide
 
-[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/minio/minio/blob/master/LICENSE)
+[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/lgcorzo/minio/blob/master/LICENSE)
 
 [![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://min.io)
 
@@ -82,7 +127,7 @@ Designed for speed and scalability, it powers AI/ML, analytics, and data-intensi
 - High Performance – Ideal for demanding storage workloads.
 
 This README provides instructions for building MinIO from source and deploying onto baremetal hardware.
-Use the [MinIO Documentation](https://github.com/minio/docs) project to build and host a local copy of the documentation.
+Use the [MinIO Documentation](https://github.com/lgcorzo/docs) project to build and host a local copy of the documentation.
 
 ## MinIO is Open Source Software
 
@@ -103,7 +148,7 @@ MinIO [AIStor](https://www.min.io/product/aistor) includes enterprise-grade supp
 
 To use MinIO community edition, you have two options:
 
-1. **Install from source** using `go install github.com/minio/minio@latest` (recommended)
+1. **Install from source** using `go install github.com/lgcorzo/minio@latest` (recommended)
 2. **Build a Docker image** from the provided Dockerfile
 
 See the sections below for detailed instructions on each method.
@@ -112,7 +157,7 @@ See the sections below for detailed instructions on each method.
 
 Historical pre-compiled binary releases remain available for reference but are no longer maintained:
 
-- GitHub Releases: https://github.com/minio/minio/releases
+- GitHub Releases: https://github.com/lgcorzo/minio/releases
 - Direct downloads: https://dl.min.io/server/minio/release/
 
 **These legacy binaries will not receive updates.** We strongly recommend using source builds for access to the latest features, bug fixes, and security updates.
@@ -123,7 +168,7 @@ Use the following commands to compile and run a standalone MinIO server from sou
 If you do not have a working Golang environment, please follow [How to install Golang](https://golang.org/doc/install). Minimum version required is [go1.24](https://golang.org/dl/#stable)
 
 ```sh
-go install github.com/minio/minio@latest
+go install github.com/lgcorzo/minio@latest
 ```
 
 You can alternatively run `go build` and use the `GOOS` and `GOARCH` environment variables to control the OS and architecture target.
@@ -188,8 +233,8 @@ For full Kubernetes Tenant manifests and deployment instructions, refer to **[do
 
 There are two paths for installing MinIO onto Kubernetes infrastructure:
 
-- Use the [MinIO Operator](https://github.com/minio/operator)
-- Use the community-maintained [Helm charts](https://github.com/minio/minio/tree/master/helm/minio)
+- Use the [MinIO Operator](https://github.com/lgcorzo/operator)
+- Use the community-maintained [Helm charts](https://github.com/lgcorzo/minio/tree/master/helm/minio)
 
 See the [MinIO Documentation](https://docs.min.io/community/minio-object-store/operations/deployments/kubernetes.html) for guidance on deploying using the Operator.
 The Community Helm chart has instructions in the folder-level README.
@@ -229,10 +274,10 @@ Follow the MinIO Client [Quickstart Guide](https://docs.min.io/community/minio-o
 
 ## Contribute to MinIO Project
 
-Please follow MinIO [Contributor's Guide](https://github.com/minio/minio/blob/master/CONTRIBUTING.md) for guidance on making new contributions to the repository.
+Please follow MinIO [Contributor's Guide](https://github.com/lgcorzo/minio/blob/master/CONTRIBUTING.md) for guidance on making new contributions to the repository.
 
 ## License
 
-- MinIO source is licensed under the [GNU AGPLv3](https://github.com/minio/minio/blob/master/LICENSE).
-- MinIO [documentation](https://github.com/minio/minio/tree/master/docs) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-- [License Compliance](https://github.com/minio/minio/blob/master/COMPLIANCE.md)
+- MinIO source is licensed under the [GNU AGPLv3](https://github.com/lgcorzo/minio/blob/master/LICENSE).
+- MinIO [documentation](https://github.com/lgcorzo/minio/tree/master/docs) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- [License Compliance](https://github.com/lgcorzo/minio/blob/master/COMPLIANCE.md)

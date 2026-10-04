@@ -55,7 +55,7 @@ docker run \
 
 ## Run Distributed MinIO on Containers
 
-We recommend kubernetes based deployment for production level deployment <https://github.com/minio/operator>.
+We recommend kubernetes based deployment for production level deployment <https://github.com/lgcorzo/operator>.
 
 See the [Kubernetes documentation](https://docs.min.io/community/minio-object-store/operations/deployments/kubernetes.html) for more information.
 

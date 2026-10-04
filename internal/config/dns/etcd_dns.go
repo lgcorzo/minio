@@ -27,7 +27,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/minio/minio-go/v7/pkg/set"
+	"github.com/lgcorzo/minio-go/v7/pkg/set"
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 

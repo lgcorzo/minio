@@ -29,26 +29,26 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/minio/minio/internal/ioutil"
+	"github.com/lgcorzo/minio/internal/ioutil"
 	"google.golang.org/api/googleapi"
 
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/tags"
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/bucket/lifecycle"
-	"github.com/minio/minio/internal/bucket/replication"
-	"github.com/minio/minio/internal/config/dns"
-	"github.com/minio/minio/internal/crypto"
-	"github.com/minio/minio/internal/kms"
-	"github.com/minio/minio/internal/logger"
+	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/lgcorzo/minio-go/v7"
+	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/lgcorzo/minio/internal/auth"
+	"github.com/lgcorzo/minio/internal/bucket/lifecycle"
+	"github.com/lgcorzo/minio/internal/bucket/replication"
+	"github.com/lgcorzo/minio/internal/config/dns"
+	"github.com/lgcorzo/minio/internal/crypto"
+	"github.com/lgcorzo/minio/internal/kms"
+	"github.com/lgcorzo/minio/internal/logger"
 
-	objectlock "github.com/minio/minio/internal/bucket/object/lock"
-	"github.com/minio/minio/internal/bucket/versioning"
-	levent "github.com/minio/minio/internal/config/lambda/event"
-	"github.com/minio/minio/internal/event"
-	"github.com/minio/minio/internal/hash"
-	"github.com/minio/pkg/v3/policy"
+	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
+	"github.com/lgcorzo/minio/internal/bucket/versioning"
+	levent "github.com/lgcorzo/minio/internal/config/lambda/event"
+	"github.com/lgcorzo/minio/internal/event"
+	"github.com/lgcorzo/minio/internal/hash"
+	"github.com/lgcorzo/pkg/v3/policy"
 )
 
 // APIError structure
@@ -281,7 +281,7 @@ const (
 	ErrInvalidStorageClass
 	ErrBackendDown
 	// Add new extended error codes here.
-	// Please open a https://github.com/minio/minio/issues before adding
+	// Please open a https://github.com/lgcorzo/minio/issues before adding
 	// new error codes here.
 
 	ErrMalformedJSON
