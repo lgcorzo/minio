@@ -25,7 +25,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"golang.org/x/crypto/ssh"
 )
 

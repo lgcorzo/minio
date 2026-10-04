@@ -26,7 +26,7 @@ import (
 	"time"
 
 	"github.com/lgcorzo/minio/internal/config"
-	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/minio/pkg/v3/env"
 )
 
 // Compression environment variables

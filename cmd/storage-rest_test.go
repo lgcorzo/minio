@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/lgcorzo/minio/internal/grid"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	xnet "github.com/minio/pkg/v3/net"
 )
 
 // Storage REST server, storageRESTReceiver and StorageRESTClient are

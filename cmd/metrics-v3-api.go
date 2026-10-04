@@ -20,7 +20,7 @@ package cmd
 import (
 	"context"
 
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/minio/minio-go/v7/pkg/set"
 )
 
 const (

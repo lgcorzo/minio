@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lgcorzo/mux"
+	"github.com/minio/mux"
 )
 
 //go:generate stringer -type=debugMsg $GOFILE

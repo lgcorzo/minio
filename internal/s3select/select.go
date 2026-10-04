@@ -40,8 +40,8 @@ import (
 	"github.com/lgcorzo/minio/internal/s3select/parquet"
 	"github.com/lgcorzo/minio/internal/s3select/simdj"
 	"github.com/lgcorzo/minio/internal/s3select/sql"
-	"github.com/lgcorzo/pkg/v3/env"
-	"github.com/lgcorzo/simdjson-go"
+	"github.com/minio/pkg/v3/env"
+	"github.com/minio/simdjson-go"
 	"github.com/pierrec/lz4/v4"
 )
 

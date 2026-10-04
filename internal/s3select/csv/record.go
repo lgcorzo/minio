@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	csv "github.com/lgcorzo/csvparser"
+	csv "github.com/minio/csvparser"
 	"github.com/lgcorzo/minio/internal/s3select/jstream"
 	"github.com/lgcorzo/minio/internal/s3select/sql"
 )

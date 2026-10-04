@@ -23,7 +23,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/minio/minio-go/v7/pkg/set"
 )
 
 func TestMustSplitHostPort(t *testing.T) {

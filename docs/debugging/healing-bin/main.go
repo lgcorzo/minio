@@ -27,7 +27,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/lgcorzo/cli"
+	"github.com/minio/cli"
 	"github.com/tinylib/msgp/msgp"
 )
 

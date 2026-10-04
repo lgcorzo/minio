@@ -24,7 +24,7 @@ import (
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/mcontext"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/pkg/v3/policy"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/expfmt"
 )

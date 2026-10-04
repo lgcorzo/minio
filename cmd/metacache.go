@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/lgcorzo/pkg/v3/console"
+	"github.com/minio/pkg/v3/console"
 )
 
 type scanStatus uint8

@@ -31,9 +31,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/lgcorzo/minio-go/v7"
-	"github.com/lgcorzo/minio-go/v7/pkg/encrypt"
-	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/encrypt"
+	"github.com/minio/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/amztime"
 	sse "github.com/lgcorzo/minio/internal/bucket/encryption"
 	objectlock "github.com/lgcorzo/minio/internal/bucket/object/lock"
@@ -48,9 +48,9 @@ import (
 	"github.com/lgcorzo/minio/internal/hash/sha256"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/mux"
-	"github.com/lgcorzo/pkg/v3/policy"
-	"github.com/lgcorzo/sio"
+	"github.com/minio/mux"
+	"github.com/minio/pkg/v3/policy"
+	"github.com/minio/sio"
 )
 
 // Multipart objectAPIHandlers

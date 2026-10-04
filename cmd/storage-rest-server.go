@@ -39,14 +39,14 @@ import (
 	"github.com/tinylib/msgp/msgp"
 
 	jwtreq "github.com/golang-jwt/jwt/v4/request"
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/config"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	xjwt "github.com/lgcorzo/minio/internal/jwt"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/mux"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	"github.com/minio/mux"
+	xnet "github.com/minio/pkg/v3/net"
 )
 
 var errDiskStale = errors.New("drive stale")

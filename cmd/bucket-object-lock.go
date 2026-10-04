@@ -28,7 +28,7 @@ import (
 	"github.com/lgcorzo/minio/internal/bucket/replication"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/pkg/v3/policy"
 )
 
 // BucketObjectLockSys - map of bucket and retention configuration.

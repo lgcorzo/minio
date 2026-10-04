@@ -24,9 +24,9 @@ import (
 	"net/http"
 
 	"github.com/lgcorzo/minio/internal/config"
-	"github.com/lgcorzo/pkg/v3/env"
-	xnet "github.com/lgcorzo/pkg/v3/net"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/pkg/v3/env"
+	xnet "github.com/minio/pkg/v3/net"
+	"github.com/minio/pkg/v3/policy"
 )
 
 // Env IAM OPA URL

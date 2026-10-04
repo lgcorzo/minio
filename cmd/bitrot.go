@@ -25,7 +25,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/lgcorzo/highwayhash"
+	"github.com/minio/highwayhash"
 	"github.com/lgcorzo/minio/internal/hash/sha256"
 	"golang.org/x/crypto/blake2b"
 

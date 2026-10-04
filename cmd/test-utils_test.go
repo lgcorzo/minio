@@ -58,15 +58,15 @@ import (
 
 	"github.com/fatih/color"
 
-	"github.com/lgcorzo/minio-go/v7/pkg/s3utils"
-	"github.com/lgcorzo/minio-go/v7/pkg/signer"
+	"github.com/minio/minio-go/v7/pkg/s3utils"
+	"github.com/minio/minio-go/v7/pkg/signer"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/config"
 	"github.com/lgcorzo/minio/internal/crypto"
 	"github.com/lgcorzo/minio/internal/hash"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/mux"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/mux"
+	"github.com/minio/pkg/v3/policy"
 )
 
 // TestMain to set up global env.

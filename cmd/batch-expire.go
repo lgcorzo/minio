@@ -29,14 +29,14 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/minio/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/bucket/versioning"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
-	"github.com/lgcorzo/pkg/v3/env"
-	"github.com/lgcorzo/pkg/v3/wildcard"
-	"github.com/lgcorzo/pkg/v3/workers"
-	"github.com/lgcorzo/pkg/v3/xtime"
+	"github.com/minio/pkg/v3/env"
+	"github.com/minio/pkg/v3/wildcard"
+	"github.com/minio/pkg/v3/workers"
+	"github.com/minio/pkg/v3/xtime"
 	"gopkg.in/yaml.v3"
 )
 

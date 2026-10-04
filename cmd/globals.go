@@ -25,11 +25,11 @@ import (
 	"sync"
 	"time"
 
-	consoleapi "github.com/lgcorzo/console/api"
-	"github.com/lgcorzo/dnscache"
-	"github.com/lgcorzo/madmin-go/v3"
-	"github.com/lgcorzo/minio-go/v7"
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	consoleapi "github.com/minio/console/api"
+	"github.com/minio/dnscache"
+	"github.com/minio/madmin-go/v3"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/set"
 	"github.com/lgcorzo/minio/internal/bpool"
 	"github.com/lgcorzo/minio/internal/bucket/bandwidth"
 	"github.com/lgcorzo/minio/internal/config"
@@ -55,9 +55,9 @@ import (
 	levent "github.com/lgcorzo/minio/internal/config/lambda/event"
 	"github.com/lgcorzo/minio/internal/event"
 	"github.com/lgcorzo/minio/internal/pubsub"
-	"github.com/lgcorzo/pkg/v3/certs"
-	"github.com/lgcorzo/pkg/v3/env"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	"github.com/minio/pkg/v3/certs"
+	"github.com/minio/pkg/v3/env"
+	xnet "github.com/minio/pkg/v3/net"
 )
 
 // minio configuration related constants.

@@ -27,13 +27,13 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
-	miniogopolicy "github.com/lgcorzo/minio-go/v7/pkg/policy"
-	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	miniogopolicy "github.com/minio/minio-go/v7/pkg/policy"
+	"github.com/minio/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/handlers"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/pkg/v3/policy"
 )
 
 // PolicySys - policy subsystem.

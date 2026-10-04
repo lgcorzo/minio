@@ -23,8 +23,8 @@ import (
 	"maps"
 	"sync"
 
-	"github.com/lgcorzo/minio-go/v7"
-	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/crypto"
 	"github.com/lgcorzo/minio/internal/hash"
 	xhttp "github.com/lgcorzo/minio/internal/http"

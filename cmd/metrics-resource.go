@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

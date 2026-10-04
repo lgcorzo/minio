@@ -33,12 +33,12 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/minio/minio-go/v7/pkg/set"
 	"github.com/lgcorzo/minio/internal/config"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/mountinfo"
-	"github.com/lgcorzo/pkg/v3/env"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	"github.com/minio/pkg/v3/env"
+	xnet "github.com/minio/pkg/v3/net"
 )
 
 // EndpointType - enum for endpoint type.

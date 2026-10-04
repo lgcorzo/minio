@@ -23,7 +23,7 @@ import (
 	"strings"
 
 	"github.com/lgcorzo/minio/internal/s3select/jstream"
-	"github.com/lgcorzo/simdjson-go"
+	"github.com/minio/simdjson-go"
 )
 
 var errBadLimitSpecified = errors.New("Limit value must be a positive integer")

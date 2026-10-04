@@ -20,7 +20,7 @@ package cmd
 import (
 	"net/http"
 
-	"github.com/lgcorzo/mux"
+	"github.com/minio/mux"
 )
 
 const (

@@ -27,13 +27,13 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/handlers"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/logger"
 	"github.com/lgcorzo/minio/internal/mcontext"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	xnet "github.com/minio/pkg/v3/net"
 )
 
 const (

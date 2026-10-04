@@ -23,9 +23,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/lgcorzo/madmin-go/v3"
-	"github.com/lgcorzo/minio-go/v7/pkg/encrypt"
-	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/minio/madmin-go/v3"
+	"github.com/minio/minio-go/v7/pkg/encrypt"
+	"github.com/minio/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/hash"
 
 	"github.com/lgcorzo/minio/internal/bucket/replication"

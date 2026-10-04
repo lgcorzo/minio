@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/lgcorzo/madmin-go/v3/logger/audit"
+	"github.com/minio/madmin-go/v3/logger/audit"
 	internalAudit "github.com/lgcorzo/minio/internal/logger/message/audit"
 	"github.com/lgcorzo/minio/internal/mcontext"
 

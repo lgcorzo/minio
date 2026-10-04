@@ -21,7 +21,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/auth"
 )
 

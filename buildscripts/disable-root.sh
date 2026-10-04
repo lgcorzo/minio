@@ -30,7 +30,7 @@ if [ ! -f ./mc ]; then
 	elif [ -f /tmp/mc ]; then
 		cp /tmp/mc ./mc
 	else
-		go install github.com/lgcorzo/mc@master
+		go install github.com/minio/mc@master
 		cp "$(go env GOPATH)/bin/mc" ./mc
 	fi
 	chmod +x ./mc

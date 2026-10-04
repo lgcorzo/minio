@@ -32,14 +32,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/bpool"
 	"github.com/lgcorzo/minio/internal/cachevalue"
 	"github.com/lgcorzo/minio/internal/grid"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/rest"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	xnet "github.com/minio/pkg/v3/net"
 	xbufio "github.com/philhofer/fwd"
 	"github.com/tinylib/msgp/msgp"
 )

@@ -30,10 +30,10 @@ import (
 	"unicode"
 
 	"github.com/dustin/go-humanize"
-	"github.com/lgcorzo/minio-go/v7/pkg/s3utils"
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/minio/minio-go/v7/pkg/s3utils"
+	"github.com/minio/minio-go/v7/pkg/set"
 	"github.com/lgcorzo/minio/internal/grid"
-	xnet "github.com/lgcorzo/pkg/v3/net"
+	xnet "github.com/minio/pkg/v3/net"
 
 	"github.com/lgcorzo/minio/internal/amztime"
 	"github.com/lgcorzo/minio/internal/config/dns"

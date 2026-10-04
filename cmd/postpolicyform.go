@@ -29,8 +29,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/lgcorzo/minio-go/v7/pkg/encrypt"
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
+	"github.com/minio/minio-go/v7/pkg/encrypt"
+	"github.com/minio/minio-go/v7/pkg/set"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/s3select/jstream"
 )

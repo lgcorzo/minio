@@ -30,12 +30,12 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
-	"github.com/lgcorzo/minio-go/v7/pkg/tags"
+	"github.com/minio/minio-go/v7/pkg/tags"
 	"github.com/lgcorzo/minio/internal/crypto"
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	"github.com/lgcorzo/minio/internal/kms"
-	"github.com/lgcorzo/pkg/v3/env"
-	"github.com/lgcorzo/pkg/v3/workers"
+	"github.com/minio/pkg/v3/env"
+	"github.com/minio/pkg/v3/workers"
 )
 
 // keyrotate:

@@ -30,11 +30,11 @@ import (
 	"time"
 
 	"github.com/klauspost/compress/zip"
-	"github.com/lgcorzo/madmin-go/v3"
-	"github.com/lgcorzo/minio-go/v7"
-	cr "github.com/lgcorzo/minio-go/v7/pkg/credentials"
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
-	"github.com/lgcorzo/pkg/v3/ldap"
+	"github.com/minio/madmin-go/v3"
+	"github.com/minio/minio-go/v7"
+	cr "github.com/minio/minio-go/v7/pkg/credentials"
+	"github.com/minio/minio-go/v7/pkg/set"
+	"github.com/minio/pkg/v3/ldap"
 )
 
 func runAllIAMSTSTests(suite *TestSuiteIAM, c *check) {

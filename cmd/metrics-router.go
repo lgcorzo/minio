@@ -21,8 +21,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/lgcorzo/mux"
-	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/minio/mux"
+	"github.com/minio/pkg/v3/env"
 )
 
 const (

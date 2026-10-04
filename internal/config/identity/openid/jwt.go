@@ -30,8 +30,8 @@ import (
 	jwtgo "github.com/golang-jwt/jwt/v4"
 	"github.com/lgcorzo/minio/internal/arn"
 	"github.com/lgcorzo/minio/internal/auth"
-	xnet "github.com/lgcorzo/pkg/v3/net"
-	"github.com/lgcorzo/pkg/v3/policy"
+	xnet "github.com/minio/pkg/v3/net"
+	"github.com/minio/pkg/v3/policy"
 )
 
 type publicKeys struct {

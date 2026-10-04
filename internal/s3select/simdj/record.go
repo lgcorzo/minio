@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"io"
 
-	csv "github.com/lgcorzo/csvparser"
+	csv "github.com/minio/csvparser"
 	"github.com/lgcorzo/minio/internal/s3select/json"
 	"github.com/lgcorzo/minio/internal/s3select/jstream"
 	"github.com/lgcorzo/minio/internal/s3select/sql"
-	"github.com/lgcorzo/simdjson-go"
+	"github.com/minio/simdjson-go"
 )
 
 // Record - is JSON record.

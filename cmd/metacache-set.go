@@ -40,7 +40,7 @@ import (
 	"github.com/lgcorzo/minio/internal/color"
 	"github.com/lgcorzo/minio/internal/hash"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
-	"github.com/lgcorzo/pkg/v3/console"
+	"github.com/minio/pkg/v3/console"
 )
 
 //go:generate msgp -file $GOFILE -unexported

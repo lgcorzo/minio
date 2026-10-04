@@ -32,7 +32,7 @@ import (
 	"github.com/lgcorzo/minio/internal/config/storageclass"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/pkg/v3/sync/errgroup"
+	"github.com/minio/pkg/v3/sync/errgroup"
 )
 
 const (

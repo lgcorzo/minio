@@ -28,7 +28,7 @@ RUN export MINIO_RELEASE="RELEASE" && \
 
 # Build minio client (mc)
 RUN ARCH="${TARGETARCH:-amd64}" && \
-    GOARCH="${ARCH}" go install github.com/lgcorzo/mc@master
+    GOARCH="${ARCH}" go install github.com/minio/mc@master
 
 # Stage 2: Final runtime image (MicroK8s MinIO Operator & Tenant compatible)
 FROM alpine:3.21

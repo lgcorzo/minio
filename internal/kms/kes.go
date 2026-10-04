@@ -24,8 +24,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lgcorzo/kms-go/kes"
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/kms-go/kes"
+	"github.com/minio/madmin-go/v3"
 )
 
 type kesConn struct {

@@ -24,10 +24,10 @@ import (
 	"strconv"
 
 	jsoniter "github.com/json-iterator/go"
-	"github.com/lgcorzo/madmin-go/v3"
+	"github.com/minio/madmin-go/v3"
 	"github.com/lgcorzo/minio/internal/config/storageclass"
-	"github.com/lgcorzo/mux"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/mux"
+	"github.com/minio/pkg/v3/policy"
 )
 
 var (

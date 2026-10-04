@@ -29,8 +29,8 @@ import (
 	"testing"
 
 	"github.com/klauspost/cpuid/v2"
-	"github.com/lgcorzo/minio-go/v7"
-	"github.com/lgcorzo/simdjson-go"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/simdjson-go"
 )
 
 func newStringRSC(s string) io.ReadSeekCloser {

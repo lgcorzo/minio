@@ -28,7 +28,7 @@ import (
 	"strings"
 	"time"
 
-	json "github.com/lgcorzo/colorjson"
+	json "github.com/minio/colorjson"
 
 	"github.com/klauspost/compress/zip"
 	"github.com/tinylib/msgp/msgp"

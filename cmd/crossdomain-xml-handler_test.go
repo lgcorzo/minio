@@ -22,7 +22,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/lgcorzo/mux"
+	"github.com/minio/mux"
 )
 
 // Test cross domain xml handler.

@@ -23,7 +23,7 @@ import (
 
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/config"
-	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/minio/pkg/v3/env"
 )
 
 const (

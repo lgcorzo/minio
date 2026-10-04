@@ -40,7 +40,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/klauspost/compress/s2"
 	"github.com/klauspost/readahead"
-	"github.com/lgcorzo/minio-go/v7/pkg/s3utils"
+	"github.com/minio/minio-go/v7/pkg/s3utils"
 	"github.com/lgcorzo/minio/internal/config/compress"
 	"github.com/lgcorzo/minio/internal/config/dns"
 	"github.com/lgcorzo/minio/internal/config/storageclass"
@@ -49,8 +49,8 @@ import (
 	xhttp "github.com/lgcorzo/minio/internal/http"
 	xioutil "github.com/lgcorzo/minio/internal/ioutil"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/pkg/v3/trie"
-	"github.com/lgcorzo/pkg/v3/wildcard"
+	"github.com/minio/pkg/v3/trie"
+	"github.com/minio/pkg/v3/wildcard"
 	"github.com/valyala/bytebufferpool"
 )
 

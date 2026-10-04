@@ -25,8 +25,8 @@ import (
 
 	"github.com/lgcorzo/minio/internal/event"
 	"github.com/lgcorzo/minio/internal/logger"
-	"github.com/lgcorzo/mux"
-	"github.com/lgcorzo/pkg/v3/policy"
+	"github.com/minio/mux"
+	"github.com/minio/pkg/v3/policy"
 )
 
 const (

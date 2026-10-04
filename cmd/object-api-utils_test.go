@@ -36,7 +36,7 @@ import (
 	"github.com/lgcorzo/minio/internal/auth"
 	"github.com/lgcorzo/minio/internal/config/compress"
 	"github.com/lgcorzo/minio/internal/crypto"
-	"github.com/lgcorzo/pkg/v3/trie"
+	"github.com/minio/pkg/v3/trie"
 )
 
 func pathJoinOld(elem ...string) string {

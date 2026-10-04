@@ -33,14 +33,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lgcorzo/madmin-go/v3"
-	"github.com/lgcorzo/minio-go/v7"
-	"github.com/lgcorzo/minio-go/v7/pkg/credentials"
-	"github.com/lgcorzo/minio-go/v7/pkg/s3utils"
-	"github.com/lgcorzo/minio-go/v7/pkg/set"
-	"github.com/lgcorzo/minio-go/v7/pkg/signer"
+	"github.com/minio/madmin-go/v3"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/credentials"
+	"github.com/minio/minio-go/v7/pkg/s3utils"
+	"github.com/minio/minio-go/v7/pkg/set"
+	"github.com/minio/minio-go/v7/pkg/signer"
 	"github.com/lgcorzo/minio/internal/auth"
-	"github.com/lgcorzo/pkg/v3/env"
+	"github.com/minio/pkg/v3/env"
 )
 
 const (

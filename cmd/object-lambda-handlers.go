@@ -29,10 +29,10 @@ import (
 
 	"github.com/klauspost/compress/gzhttp"
 	"github.com/lithammer/shortuuid/v4"
-	miniogo "github.com/lgcorzo/minio-go/v7"
-	"github.com/lgcorzo/minio-go/v7/pkg/credentials"
-	"github.com/lgcorzo/mux"
-	"github.com/lgcorzo/pkg/v3/policy"
+	miniogo "github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/credentials"
+	"github.com/minio/mux"
+	"github.com/minio/pkg/v3/policy"
 
 	"github.com/lgcorzo/minio/internal/auth"
 	levent "github.com/lgcorzo/minio/internal/config/lambda/event"

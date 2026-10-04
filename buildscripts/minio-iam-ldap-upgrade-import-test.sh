@@ -31,7 +31,7 @@ __init__() {
 		echo "mc is already installed"
 	else
 		echo "Installing mc:"
-		go install github.com/lgcorzo/mc@latest
+		go install github.com/minio/mc@latest
 	fi
 
 	if [ ! -x ./minio.${OLD_VERSION} ]; then
