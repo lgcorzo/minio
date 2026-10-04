@@ -22,8 +22,9 @@ if [ ! -f ./mc ]; then
 fi
 
 if [ ! -f ./kes ]; then
-	wget --quiet -O kes https://github.com/minio/kes/releases/latest/download/kes-linux-amd64 &&
-		chmod +x kes
+	wget --quiet -O kes https://github.com/lgcorzo/kes/releases/latest/download/kes-linux-amd64 ||
+		wget --quiet -O kes https://github.com/minio/kes/releases/latest/download/kes-linux-amd64
+	chmod +x kes
 fi
 
 if ! openssl version &>/dev/null; then
