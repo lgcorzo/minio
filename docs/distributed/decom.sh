@@ -22,7 +22,11 @@ pid=$!
 
 export MC_HOST_myminio="http://minioadmin:minioadmin@localhost:9000/"
 
-./mc ready myminio
+if ! timeout 180 ./mc ready myminio; then
+	echo "minio failed to become ready, server log follows:"
+	cat /tmp/decom.log
+	exit 1
+fi
 
 ./mc admin user add myminio/ minio123 minio123
 ./mc admin user add myminio/ minio12345 minio12345
