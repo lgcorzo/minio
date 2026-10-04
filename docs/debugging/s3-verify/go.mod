@@ -2,17 +2,18 @@ module github.com/lgcorzo/minio/docs/debugging/s3-verify
 
 go 1.25.0
 
-require github.com/lgcorzo/minio-go/v7 v7.0.83
+require github.com/lgcorzo/minio-go/v7 v7.0.91-lgcorzo.2
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
-	github.com/goccy/go-json v0.10.4 // indirect
+	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/klauspost/compress v1.17.11 // indirect
-	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
-	github.com/lgcorzo/md5-simd v1.1.2 // indirect
+	github.com/klauspost/compress v1.18.0 // indirect
+	github.com/klauspost/cpuid/v2 v2.2.10 // indirect
+	github.com/lgcorzo/crc64nvme v1.0.1-lgcorzo.1 // indirect
+	github.com/lgcorzo/md5-simd v1.1.2-lgcorzo.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rs/xid v1.6.0 // indirect
 	golang.org/x/crypto v0.52.0 // indirect
