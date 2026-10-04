@@ -100,6 +100,7 @@ To guarantee long-term sovereign support, full supply-chain independence, and co
 | | [`lgcorzo/cli`](https://github.com/lgcorzo/cli) | Minimalist CLI Framework | Lightweight command-line argument parser for distributed helper utilities |
 | **Testing & Tooling** | [`lgcorzo/mint`](https://github.com/lgcorzo/mint) | Integration Test & Verification Suite | End-to-end multi-language test suite certifying S3 protocol and functional compliance |
 | | [`lgcorzo/dperf`](https://github.com/lgcorzo/dperf) | Distributed Performance Benchmark | Stress-testing network bandwidth, disk I/O, and CPU throughput across storage nodes |
+| | [`lgcorzo/multipart-debug`](https://github.com/lgcorzo/multipart-debug) | S3 Multipart Upload Diagnostic Tool | Low-level multipart upload debugging, part alignment, and encryption validation |
 | | [`lgcorzo/minio-cf`](https://github.com/lgcorzo/minio-cf) | Cloud Foundry Integration | Support for deploying and orchestrating MinIO within Cloud Foundry estates |
 
 ---

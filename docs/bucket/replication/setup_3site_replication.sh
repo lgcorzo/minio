@@ -219,7 +219,7 @@ echo "Verifying ETag for all objects"
 ./s3-check-md5 -versions -access-key minio -secret-key minio123 -endpoint http://127.0.0.1:9006/ -bucket olockbucket
 
 # additional tests for encryption object alignment
-go install -v github.com/lgcorzo/multipart-debug@latest
+go install -v github.com/minio/multipart-debug@latest
 
 upload_id=$(multipart-debug --endpoint 127.0.0.1:9001 --accesskey minio --secretkey minio123 multipart new --bucket bucket --object new-test-encrypted-object --encrypt)
 
