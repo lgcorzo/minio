@@ -97,4 +97,3 @@ fi
 kill $pid 2>/dev/null || true
 kill $kes_pid 2>/dev/null || true
 stop_minio
-

@@ -17,7 +17,6 @@ stop_minio
 rm -rf /tmp/xl
 rm -rf /tmp/xltier
 
-
 if [ ! -f ./mc ]; then
 	if command -v mc &>/dev/null; then
 		cp "$(command -v mc)" ./mc
@@ -249,4 +248,3 @@ s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint h
 
 kill $pid 2>/dev/null || true
 stop_minio
-

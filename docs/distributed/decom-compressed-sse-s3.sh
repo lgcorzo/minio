@@ -180,4 +180,3 @@ fi
 
 kill $pid 2>/dev/null || true
 stop_minio
-
