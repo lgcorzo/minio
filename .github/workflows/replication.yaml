@@ -36,6 +36,8 @@ jobs:
           sudo cp "${MC_BIN}" /usr/local/bin/mc
           sudo cp "${MC_BIN}" /tmp/mc
           cp "${MC_BIN}" ./mc
+          go build -o ./s3-check-md5 ./docs/debugging/s3-check-md5
+          sudo cp ./s3-check-md5 /usr/local/bin/s3-check-md5
       - name: Test Decom
         run: |
           sudo sysctl net.ipv6.conf.all.disable_ipv6=0

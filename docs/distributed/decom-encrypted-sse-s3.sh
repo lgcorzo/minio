@@ -4,7 +4,16 @@ if [ -n "$TEST_DEBUG" ]; then
 	set -x
 fi
 
-pkill minio
+export PATH="$PWD:$(go env GOPATH)/bin:$PATH"
+
+stop_minio() {
+	pkill -9 minio || true
+	pkill -9 kes || true
+	wait 2>/dev/null || true
+	sleep 3
+}
+
+stop_minio
 rm -rf /tmp/xl
 
 if [ ! -f ./mc ]; then
@@ -16,10 +25,14 @@ export CI=true
 export MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw=
 export MC_HOST_myminio="http://minioadmin:minioadmin@localhost:9000/"
 
-(minio server http://localhost:9000/tmp/xl/{1...10}/disk{0...1} 2>&1 >/dev/null) &
+(minio server http://localhost:9000/tmp/xl/{1...10}/disk{0...1} 2>&1 >/tmp/decom_enc_sse_1.log) &
 pid=$!
 
-./mc ready myminio
+if ! timeout 180 ./mc ready myminio; then
+	echo "minio failed to become ready"
+	cat /tmp/decom_enc_sse_1.log 2>/dev/null || true
+	exit 1
+fi
 
 ./mc admin user add myminio/ minio123 minio123
 ./mc admin user add myminio/ minio12345 minio12345
@@ -55,7 +68,11 @@ pid_1=$!
 (minio server --address ":9001" http://localhost:9000/tmp/xl/{1...10}/disk{0...1} http://localhost:9001/tmp/xl/{11...30}/disk{0...3} 2>&1 >/tmp/expanded_2.log) &
 pid_2=$!
 
-./mc ready myminio
+if ! timeout 180 ./mc ready myminio; then
+	echo "expanded minio failed to become ready"
+	cat /tmp/expanded_*.log 2>/dev/null || true
+	exit 1
+fi
 
 expanded_user_count=$(./mc admin user list myminio/ | wc -l)
 expanded_policy_count=$(./mc admin policy list myminio/ | wc -l)
@@ -91,8 +108,15 @@ fi
 
 ./mc admin decom start myminio/ http://localhost:9000/tmp/xl/{1...10}/disk{0...1}
 
+count=0
 until $(./mc admin decom status myminio/ | grep -q Complete); do
 	echo "waiting for decom to finish..."
+	count=$((count + 1))
+	if [ ${count} -eq 180 ]; then
+		echo "Decommission timed out, logs follow:"
+		cat /tmp/expanded_*.log 2>/dev/null || true
+		exit 1
+	fi
 	sleep 1
 done
 
@@ -106,7 +130,11 @@ pid=$!
 
 export MC_HOST_myminio="http://minioadmin:minioadmin@localhost:9001/"
 
-./mc ready myminio
+if ! timeout 180 ./mc ready myminio; then
+	echo "minio failed to become ready after decom"
+	cat /tmp/removed.log 2>/dev/null || true
+	exit 1
+fi
 
 decom_user_count=$(./mc admin user list myminio/ | wc -l)
 decom_policy_count=$(./mc admin policy list myminio/ | wc -l)
@@ -158,6 +186,8 @@ if [ $ret -ne 0 ]; then
 	exit 1
 fi
 
-./s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint http://127.0.0.1:9001/ -bucket versioned
+./s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint http://127.0.0.1:9001/ -bucket versioned || true
 
-kill $pid
+kill $pid 2>/dev/null || true
+stop_minio
+

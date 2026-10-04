@@ -4,15 +4,23 @@ if [ -n "$TEST_DEBUG" ]; then
 	set -x
 fi
 
-pkill minio
-pkill kes
+export PATH="$PWD:$(go env GOPATH)/bin:$PATH"
+
+stop_minio() {
+	pkill -9 minio || true
+	pkill -9 kes || true
+	wait 2>/dev/null || true
+	sleep 3
+}
+
+stop_minio
 rm -rf /tmp/xl
 
 go install -v github.com/lgcorzo/mc@master
 cp -a $(go env GOPATH)/bin/mc ./mc
 
 if [ ! -f ./kes ]; then
-	wget --quiet -O kes https://github.com/lgcorzo/kes/releases/latest/download/kes-linux-amd64 &&
+	wget --quiet -O kes https://github.com/minio/kes/releases/latest/download/kes-linux-amd64 &&
 		chmod +x kes
 fi
 
@@ -34,10 +42,14 @@ export MINIO_KMS_KES_KEY_NAME=minio-default-key
 export MINIO_KMS_KES_CAPATH=public.crt
 export MC_HOST_myminio="http://minioadmin:minioadmin@localhost:9000/"
 
-(minio server http://localhost:9000/tmp/xl/{1...10}/disk{0...1} 2>&1 >/dev/null) &
+(minio server http://localhost:9000/tmp/xl/{1...10}/disk{0...1} 2>&1 >/tmp/pbac_minio.log) &
 pid=$!
 
-mc ready myminio
+if ! timeout 180 mc ready myminio; then
+	echo "minio failed to become ready"
+	cat /tmp/pbac_minio.log 2>/dev/null || true
+	exit 1
+fi
 
 mc admin user add myminio/ minio123 minio123
 
@@ -81,5 +93,7 @@ if [ $ret -eq 0 ]; then
 	exit 1
 fi
 
-kill $pid
-kill $kes_pid
+kill $pid 2>/dev/null || true
+kill $kes_pid 2>/dev/null || true
+stop_minio
+

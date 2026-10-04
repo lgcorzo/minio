@@ -1,5 +1,6 @@
 PWD := $(shell pwd)
 GOPATH := $(shell go env GOPATH)
+export PATH := $(PWD):$(GOPATH)/bin:$(PATH)
 LDFLAGS := $(shell go run buildscripts/gen-ldflags.go)
 
 GOOS ?= $(shell go env GOOS)

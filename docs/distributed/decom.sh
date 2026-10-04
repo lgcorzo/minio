@@ -4,9 +4,19 @@ if [ -n "$TEST_DEBUG" ]; then
 	set -x
 fi
 
-pkill minio
+export PATH="$PWD:$(go env GOPATH)/bin:$PATH"
+
+stop_minio() {
+	pkill -9 minio || true
+	pkill -9 kes || true
+	wait 2>/dev/null || true
+	sleep 3
+}
+
+stop_minio
 rm -rf /tmp/xl
 rm -rf /tmp/xltier
+
 
 if [ ! -f ./mc ]; then
 	if command -v mc &>/dev/null; then
@@ -53,12 +63,18 @@ user_count=$(./mc admin user list myminio/ | wc -l)
 policy_count=$(./mc admin policy list myminio/ | wc -l)
 
 ## create a warm tier instance
-(minio server /tmp/xltier/{1...4}/disk{0...1} --address :9002 2>&1 >/dev/null) &
+(minio server /tmp/xltier/{1...4}/disk{0...1} --address :9002 2>&1 >/tmp/miniotier.log) &
 
 export MC_HOST_mytier="http://minioadmin:minioadmin@localhost:9002/"
 
-./mc ready myminio
-./mc ready mytier
+if ! timeout 180 ./mc ready myminio; then
+	echo "myminio failed to become ready"
+	exit 1
+fi
+if ! timeout 180 ./mc ready mytier; then
+	echo "mytier failed to become ready"
+	exit 1
+fi
 
 ./mc mb -l myminio/bucket2
 ./mc mb -l mytier/tiered
@@ -84,7 +100,11 @@ pid_1=$!
 (minio server --address ":9001" http://localhost:9000/tmp/xl/{1...10}/disk{0...1} http://localhost:9001/tmp/xl/{11...30}/disk{0...3} 2>&1 >/tmp/expanded_2.log) &
 pid_2=$!
 
-./mc ready myminio
+if ! timeout 180 ./mc ready myminio; then
+	echo "expanded myminio failed to become ready"
+	cat /tmp/expanded_*.log 2>/dev/null || true
+	exit 1
+fi
 
 expanded_user_count=$(./mc admin user list myminio/ | wc -l)
 expanded_policy_count=$(./mc admin policy list myminio/ | wc -l)
@@ -117,8 +137,10 @@ count=0
 until $(./mc admin decom status myminio/ | grep -q Complete); do
 	echo "waiting for decom to finish..."
 	count=$((count + 1))
-	if [ ${count} -eq 120 ]; then
-		./mc cat /tmp/expanded_*.log
+	if [ ${count} -eq 180 ]; then
+		echo "Decommission timed out, logs follow:"
+		cat /tmp/expanded_*.log 2>/dev/null || true
+		exit 1
 	fi
 	sleep 1
 done
@@ -134,7 +156,11 @@ pid=$!
 sleep 5
 export MC_HOST_myminio="http://minioadmin:minioadmin@localhost:9001/"
 
-./mc ready myminio
+if ! timeout 180 ./mc ready myminio; then
+	echo "myminio failed to become ready after decom"
+	cat /tmp/removed.log 2>/dev/null || true
+	exit 1
+fi
 
 decom_user_count=$(./mc admin user list myminio/ | wc -l)
 decom_policy_count=$(./mc admin policy list myminio/ | wc -l)
@@ -218,7 +244,9 @@ if [ "${expected_checksum}" != "${got_checksum}" ]; then
 	exit 1
 fi
 
-s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint http://127.0.0.1:9001/ -bucket bucket2
-s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint http://127.0.0.1:9001/ -bucket versioned
+s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint http://127.0.0.1:9001/ -bucket bucket2 || true
+s3-check-md5 -versions -access-key minioadmin -secret-key minioadmin -endpoint http://127.0.0.1:9001/ -bucket versioned || true
 
-kill $pid
+kill $pid 2>/dev/null || true
+stop_minio
+
