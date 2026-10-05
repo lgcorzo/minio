@@ -201,9 +201,8 @@ replace (
 
 # MinIO Quickstart Guide
 
-[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/lgcorzo/minio/blob/master/LICENSE)
+ [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/lgcorzo/minio/blob/master/LICENSE)
 
-[![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://min.io)
 
 MinIO is a high-performance, S3-compatible object storage solution released under the GNU AGPL v3.0 license.
 Designed for speed and scalability, it powers AI/ML, analytics, and data-intensive workloads with industry-leading performance.
