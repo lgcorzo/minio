@@ -70,7 +70,7 @@ For MicroK8s deployment details, see **[MicroK8s Deployment Guide](docs/microk8s
 
 ### 4. Sovereign MinIO Ecosystem: Maintained Repositories in `@lgcorzo`
 
-To guarantee long-term sovereign support, full supply-chain independence, and continuous security patching for the Dark Gravity factory and production environments, the complete MinIO ecosystem of servers, clients, acceleration libraries, and core dependencies has been preserved and actively maintained under **`@lgcorzo`**:
+To guarantee long-term sovereign support, full supply-chain independence, and continuous security patching for the Dark Gravity factory and production environments, the complete MinIO ecosystem of 38 servers, clients, storage drivers, acceleration libraries, and core dependencies has been preserved and actively maintained under **`@lgcorzo`**:
 
 | Category | Repository | Description | Key Capabilities |
 | :--- | :--- | :--- | :--- |
@@ -79,8 +79,9 @@ To guarantee long-term sovereign support, full supply-chain independence, and co
 | | [`lgcorzo/kes`](https://github.com/lgcorzo/kes) | Key Encryption Server (KES) | High-performance KMS proxy (Vault, AWS-KMS, GCP-KMS, Azure Key Vault, Dev KMS) |
 | | [`lgcorzo/console`](https://github.com/lgcorzo/console) | Graphical Web Administration Interface | Visual bucket policy management, IAM administration, observability metrics dashboard |
 | | [`lgcorzo/operator`](https://github.com/lgcorzo/operator) | Kubernetes Operator | Declarative MinIO Tenant orchestration, CRD management, and cluster automation |
-| | [`lgcorzo/docs`](https://github.com/lgcorzo/docs) | Documentation Source & Engine | Sphinx-based documentation build system and architecture references |
+| | [`lgcorzo/directpv`](https://github.com/lgcorzo/directpv) | Kubernetes CSI Direct Storage Driver | High-throughput direct-attached NVMe/SSD volume provisioner for Kubernetes |
 | | [`lgcorzo/sidekick`](https://github.com/lgcorzo/sidekick) | High-Performance S3 Proxy | Low-latency client-side load balancing and failover sidecar proxy |
+| | [`lgcorzo/docs`](https://github.com/lgcorzo/docs) | Documentation Source & Engine | Sphinx-based documentation build system and architecture references |
 | **SDKs & APIs** | [`lgcorzo/minio-go`](https://github.com/lgcorzo/minio-go) | Official Go Client SDK | Idiomatic Go SDK for object storage operations, multipart uploads, STS, and presigned URLs |
 | | [`lgcorzo/madmin-go`](https://github.com/lgcorzo/madmin-go) | MinIO Admin Go Library | Administrative APIs for server configuration, user management, healing, and decommissioning |
 | | [`lgcorzo/kms-go`](https://github.com/lgcorzo/kms-go) | Cryptographic KMS Client Library | Go client primitives for key creation, DEK derivation, and envelope encryption via KES |
@@ -88,6 +89,7 @@ To guarantee long-term sovereign support, full supply-chain independence, and co
 | | [`lgcorzo/mtls`](https://github.com/lgcorzo/mtls) | Mutual TLS Utilities | Zero-trust inter-node cryptographic identity verification and mTLS configuration |
 | **Hardware & SIMD Acceleration** | [`lgcorzo/sha256-simd`](https://github.com/lgcorzo/sha256-simd) | SIMD-Accelerated SHA256 | AVX-512 and ARMv8 Crypto Extensions SHA256 acceleration (up to 100x speedup) |
 | | [`lgcorzo/md5-simd`](https://github.com/lgcorzo/md5-simd) | SIMD-Accelerated MD5 | Parallel AVX-512 and AVX2 MD5 calculation (up to 8x acceleration) |
+| | [`lgcorzo/blake2b-simd`](https://github.com/lgcorzo/blake2b-simd) | SIMD-Accelerated BLAKE2b | Pure Go cryptographic hashing leveraging AVX2/AVX512/SSSE3 vector instructions |
 | | [`lgcorzo/highwayhash`](https://github.com/lgcorzo/highwayhash) | SIMD HighwayHash | High-speed native hashing (>10 GB/s per core on Intel & ARM assembly) |
 | | [`lgcorzo/crc64nvme`](https://github.com/lgcorzo/crc64nvme) | NVMe CRC64 SIMD Acceleration | Fast carryless-multiplication CRC64 checksums for NVMe storage devices |
 | | [`lgcorzo/simdjson-go`](https://github.com/lgcorzo/simdjson-go) | High-Throughput SIMD JSON Parser | Gigabytes/sec JSON parsing leveraging vector instructions for event & metadata processing |
@@ -112,6 +114,90 @@ To guarantee long-term sovereign support, full supply-chain independence, and co
 | | [`lgcorzo/minio-cf`](https://github.com/lgcorzo/minio-cf) | Cloud Foundry Integration | Support for deploying and orchestrating MinIO within Cloud Foundry estates |
 
 ---
+
+### 5. Sovereign Maintenance & Long-Term Support Plan in GitHub
+
+To preserve long-term operational resilience, supply-chain autonomy, and enterprise security compliance (EU AI Act, SOC 2 Type II, ISO 25059) without upstream commercial lock-in, all 38 repositories are managed under a structured maintenance protocol:
+
+```mermaid
+flowchart TD
+    subgraph "1. Upstream & Vulnerability Tracking"
+        UPSTREAM["Upstream Git Repositories"] -->|Weekly Cron Poll| SYNC_WF["GitHub Actions: Upstream Sync"]
+        VULN_DB["OSV / NIST NVD / VulnCheck"] -->|Daily Security Scan| SEC_SCAN["Trivy & CodeQL SAST"]
+    end
+
+    subgraph "2. Autonomous Remediation (Dark Gravity Factory)"
+        SYNC_WF -->|New Commits / Upstream Tags| MERGE_GATE{"Conflict Check"}
+        SEC_SCAN -->|CVE Alert Detected| ISSUE_DISPATCH["Dispatch Mission to Hatchet DAG"]
+        ISSUE_DISPATCH --> RUSTANT["Rustant Planner Agent"]
+        RUSTANT --> ZERO_CLAW["ZeroClaw Dev Agent"]
+        ZERO_CLAW -->|AST Surgical Fix| BRANCH_PR["Create Hardened PR"]
+    end
+
+    subgraph "3. Automated Verification Matrix"
+        MERGE_GATE -->|Fast-Forward / Non-Conflicting| RUN_MATRIX["Comprehensive CI Matrix (23 Checks)"]
+        BRANCH_PR --> RUN_MATRIX
+        RUN_MATRIX --> TEST_DECOM["test-decom (Cluster Decommission)"]
+        RUN_MATRIX --> TEST_REPL["test-replication (Multi-Site Sync)"]
+        RUN_MATRIX --> TEST_RESIL["test-resiliency (Disaster Recovery)"]
+        RUN_MATRIX --> TEST_SEC["CodeQL & VulnCheck SAST"]
+    end
+
+    subgraph "4. Supply Chain Artifact Publishing"
+        RUN_MATRIX -->|Green Verification| BUILD_ARTIFACTS["Multi-Arch Build (AMD64 / ARM64)"]
+        BUILD_ARTIFACTS --> DOCKER_REG["GHCR (ghcr.io/lgcorzo/*)"]
+        BUILD_ARTIFACTS --> LOCAL_REG["MicroK8s In-Cluster Registry (localhost:32000)"]
+        BUILD_ARTIFACTS --> GH_RELEASES["GitHub Releases + Cosign / Minisign Signatures"]
+    end
+```
+
+#### 5.1 Automated Upstream Synchronization
+- **Scheduled Synchronization Workflows**: Each repository runs a weekly GitHub Actions workflow (`.github/workflows/upstream-sync.yml`) fetching upstream tags and release commits.
+- **Protected Branch Non-Destructive Merges**: Upstream changes are fetched into dedicated tracking branches (`upstream-master`) and merged into `master` via pull requests to ensure custom factory hardening, multi-stage Docker builds, and Dark Gravity patches are never overwritten.
+- **Automated Tag & Release Mirroring**: When upstream publishes new tags, an automated action extracts release assets and mirrors them to `lgcorzo/<repo>/releases`, preventing missing binary links (`410 Gone` / `404 Not Found`).
+
+#### 5.2 Vulnerability Ingestion & Autonomous Remediation
+- **Continuous CVE Scanning**: Daily VulnCheck, CodeQL, and Trivy container inspections are executed across all repositories.
+- **Autonomous Repair via Dark Gravity Agents**:
+  1. High/Critical CVEs trigger an issue labeled `autonomous-mission` in [`rust_CACD_autonomous_factory`](https://github.com/lgcorzo/rust_CACD_autonomous_factory).
+  2. The Hatchet orchestrator assigns the remediation mission to **ZeroClaw** (developer agent).
+  3. Surgical AST mutations are applied, tested in gVisor sandboxes against the standardized verification suite, and presented for Human-in-the-Loop (HITL) review.
+
+#### 5.3 Multi-Architecture Container CI/CD & Local Registries
+- **Zero-Dependency Multi-Stage Dockerfiles**: Repositories feature self-contained Docker builds compiling from source with Go 1.24/1.26 on Alpine Linux, eliminating external binary download dependencies.
+- **Dual Registry Target**:
+  - Global Container Distribution: `ghcr.io/lgcorzo/minio:latest` and tagged release versions.
+  - Air-Gapped MicroK8s Deployments: In-cluster private registry at `localhost:32000` via `./scripts/deploy-to-microk8s.sh`.
+
+#### 5.4 Signature-Verified Binary Releases
+- Every published binary (`minio`, `mc`, `kes`, `certgen`, `pkger`, `warp`) is cryptographically signed using **Minisign** (`minisign -s minisign.key`) and **Sigstore Cosign**, generating SHA-256 and BLAKE3 checksum manifests.
+- Downstream container images verify checksums before packaging to enforce strict supply-chain provenance.
+
+#### 5.5 Go Module Dependency Resolution Policy
+To import sovereign libraries across the Dark Gravity factory without namespace conflicts, projects declare Go module `replace` directives in their `go.mod`:
+
+```go
+module my-factory-service
+
+go 1.24
+
+require (
+    github.com/minio/minio v0.0.0
+    github.com/minio/mc v0.0.0
+    github.com/minio/sha256-simd v1.0.1
+    github.com/minio/madmin-go/v3 v3.0.0
+)
+
+replace (
+    github.com/minio/minio => github.com/lgcorzo/minio master
+    github.com/minio/mc => github.com/lgcorzo/mc master
+    github.com/minio/sha256-simd => github.com/lgcorzo/sha256-simd master
+    github.com/minio/madmin-go/v3 => github.com/lgcorzo/madmin-go master
+)
+```
+
+---
+
 
 # MinIO Quickstart Guide
 
