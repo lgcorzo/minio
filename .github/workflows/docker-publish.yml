@@ -71,12 +71,10 @@ jobs:
           TAGS="${TAGS},${GHCR_BASE}:${REF_CLEAN}"
 
           # Also publish under mc repository for tools expecting separate minio/mc image
-          GHCR_MC="ghcr.io/${REPO_OWNER}/mc"
-          TAGS="${TAGS},${GHCR_MC}:latest,${GHCR_MC}:${{ github.sha }},${GHCR_MC}:microk8s-latest,${GHCR_MC}:${REF_CLEAN}"
 
           # Add custom tag if triggered via workflow_dispatch
           if [ -n "${{ github.event.inputs.custom_tag }}" ]; then
-            TAGS="${TAGS},${GHCR_BASE}:${{ github.event.inputs.custom_tag }},${GHCR_MC}:${{ github.event.inputs.custom_tag }}"
+            TAGS="${TAGS},${GHCR_BASE}:${{ github.event.inputs.custom_tag }}"
           fi
 
           # If Docker Hub username secret is configured, append docker.io tags
