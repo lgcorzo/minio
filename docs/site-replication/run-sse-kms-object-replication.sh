@@ -51,7 +51,7 @@ echo "done"
 
 if [ ! -f ./mc ]; then
 	echo -n "Downloading MinIO client ..."
-	docker run --rm --entrypoint cat ghcr.io/lgcorzo/mc:latest /usr/bin/mc > mc || wget -qO mc https://github.com/lgcorzo/mc/releases/latest/download/mc &&
+	docker run --rm --entrypoint cat ghcr.io/lgcorzo/mc:latest /usr/bin/mc >mc || wget -qO mc https://github.com/lgcorzo/mc/releases/latest/download/mc &&
 		chmod +x mc
 	echo "done"
 fi
