@@ -110,6 +110,23 @@ func TestValue_SameTypeAs(t *testing.T) {
 	}
 }
 
+func TestIntArithOpOverflow(t *testing.T) {
+	_, errDiv := intArithOp(opDivide, math.MinInt64, -1)
+	if errDiv == nil {
+		t.Errorf("expected error for MinInt64 / -1, got nil")
+	}
+
+	_, errMod := intArithOp(opModulo, math.MinInt64, -1)
+	if errMod == nil {
+		t.Errorf("expected error for MinInt64 %% -1, got nil")
+	}
+
+	resNormal, errNormal := intArithOp(opDivide, 10, 2)
+	if errNormal != nil || resNormal != 5 {
+		t.Errorf("expected 10 / 2 = 5, got %v, err: %v", resNormal, errNormal)
+	}
+}
+
 func TestValue_Equals(t *testing.T) {
 	type fields struct {
 		a, b Value

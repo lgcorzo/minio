@@ -333,7 +333,11 @@ func (v *Value) negate() {
 	case float64:
 		v.value = -x
 	case int64:
-		v.value = -x
+		if x == math.MinInt64 {
+			v.value = float64(-x)
+		} else {
+			v.value = -x
+		}
 	}
 }
 
@@ -915,23 +919,43 @@ func isValidArithOperator(op string) bool {
 	return true
 }
 
-// Overflow errors are ignored.
+// intArithOp performs integer arithmetic with bounds checking to prevent overflow.
 func intArithOp(op string, left, right int64) (int64, error) {
 	switch op {
 	case opPlus:
+		if (right > 0 && left > math.MaxInt64-right) || (right < 0 && left < math.MinInt64-right) {
+			return 0, errInvalidDataType(errors.New("integer overflow"))
+		}
 		return left + right, nil
 	case opMinus:
+		if (right < 0 && left > math.MaxInt64+right) || (right > 0 && left < math.MinInt64+right) {
+			return 0, errInvalidDataType(errors.New("integer overflow"))
+		}
 		return left - right, nil
 	case opDivide:
 		if right == 0 {
 			return 0, errArithDivideByZero
 		}
+		if left == math.MinInt64 && right == -1 {
+			return 0, errInvalidDataType(errors.New("integer overflow"))
+		}
 		return left / right, nil
 	case opMultiply:
+		if left != 0 && right != 0 {
+			if (left > 0 && right > 0 && left > math.MaxInt64/right) ||
+				(left > 0 && right < 0 && right < math.MinInt64/left) ||
+				(left < 0 && right > 0 && left < math.MinInt64/right) ||
+				(left < 0 && right < 0 && left < math.MaxInt64/right) {
+				return 0, errInvalidDataType(errors.New("integer overflow"))
+			}
+		}
 		return left * right, nil
 	case opModulo:
 		if right == 0 {
 			return 0, errArithDivideByZero
+		}
+		if left == math.MinInt64 && right == -1 {
+			return 0, errInvalidDataType(errors.New("integer overflow"))
 		}
 		return left % right, nil
 	}
