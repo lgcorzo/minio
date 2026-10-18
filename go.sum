@@ -414,8 +414,8 @@ github.com/lgcorzo/cli v1.24.2-lgcorzo.1 h1:z4VTSx12dpDH0Zkw6G7bIt0mF9Lrsh/rdrPA
 github.com/lgcorzo/cli v1.24.2-lgcorzo.1/go.mod h1:kwB1L9/aQWvCRxpjtpypCrDi36fWcNqI2yR/pT5NWxs=
 github.com/lgcorzo/colorjson v1.0.8-lgcorzo.1 h1:IgmM6AivNuYo6rvKAQSONz1Bd/0qhmcgBpT6iT7GCCQ=
 github.com/lgcorzo/colorjson v1.0.8-lgcorzo.1/go.mod h1:Rp+veiFtqxWJrxF3LghMue3rJdUDyb8Br1T/nidgm4o=
-github.com/lgcorzo/console v1.7.8-lgcorzo.4 h1:02V53uVCDL21O11aRm4tSIbu03qPC/jlK/qqB1RIC24=
-github.com/lgcorzo/console v1.7.8-lgcorzo.4/go.mod h1:0ladnTSKZUvfAnizkw1l2t8m2G0Y0pBox+d0kVh/4Ok=
+github.com/lgcorzo/console v1.7.8-lgcorzo.5 h1:gbgunDUB8/d21w0/gYJTZMRM/SfYf8THGqBToGak9XA=
+github.com/lgcorzo/console v1.7.8-lgcorzo.5/go.mod h1:0ladnTSKZUvfAnizkw1l2t8m2G0Y0pBox+d0kVh/4Ok=
 github.com/lgcorzo/crc64nvme v1.0.1-lgcorzo.1 h1:oFQ4tM/EpCslKrGeUrG8cBk+FyBPMeulsJ9e+zwoqh4=
 github.com/lgcorzo/crc64nvme v1.0.1-lgcorzo.1/go.mod h1:NotIXigiSOl/zwlgKGIoTdHhMxPTEeBXjkq5liZYUMY=
 github.com/lgcorzo/csvparser v1.0.0-lgcorzo.1 h1:vpllNCU2NrpxceaxI2FVmN2i2TodVlBhK1eZVry2Is8=
