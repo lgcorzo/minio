@@ -46,7 +46,7 @@ require (
 	github.com/klauspost/readahead v1.4.0
 	github.com/klauspost/reedsolomon v1.12.4
 	github.com/lgcorzo/cli v1.24.2-lgcorzo.1
-	github.com/lgcorzo/console v1.7.8-lgcorzo.4
+	github.com/lgcorzo/console v1.7.8-lgcorzo.5
 	github.com/lgcorzo/csvparser v1.0.0-lgcorzo.1
 	github.com/lgcorzo/dnscache v0.1.1-lgcorzo.1
 	github.com/lgcorzo/dperf v0.6.3-lgcorzo.1
