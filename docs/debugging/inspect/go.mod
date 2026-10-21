@@ -3,7 +3,7 @@ module github.com/lgcorzo/minio/docs/debugging/inspect
 go 1.25.0
 
 require (
-	github.com/klauspost/compress v1.18.0
+	github.com/klauspost/compress v1.18.7
 	github.com/klauspost/filepathx v1.1.1
 	github.com/lgcorzo/colorjson v1.0.8-lgcorzo.1
 	github.com/lgcorzo/madmin-go/v3 v3.0.109-lgcorzo.1
