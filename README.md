@@ -12,10 +12,10 @@ Maintained fork of [minio/minio](https://github.com/minio/minio) (archived upstr
 
 In the **Dark Gravity Autonomous CA/CD Software Factory (V7.2 / V7.3)**, MinIO is not merely a utility—it is the **foundational persistent Object Storage Fabric** for the entire autonomous engineering system.
 
-Upstream MinIO's shift away from open-source community maintenance (`410 Gone` on legacy binary distributions) leaves unaddressed security vulnerabilities (CVEs) and orphaned dependency chains. In a zero-trust, autonomous multi-agent factory where AI agents autonomously synthesize, compile, and deploy software:
+Upstream MinIO's shift away from open-source community maintenance (`410 Gone` on legacy binary distributions) leaves unaddressed security vulnerabilities (CVEs) and orphaned dependency chains. In an autonomous multi-agent factory using mTLS client authentication, per-identity access policies, and audit logs:
 - **Supply-Chain & Runtime Integrity**: Unpatched storage vulnerabilities would compromise the integrity of compiled binaries, causal provenance records, and git mutations.
 - **Air-Gapped Data Sovereignty**: Dark Gravity operates on sovereign, air-gapped infrastructure. Proprietary source code, AST mutations, and corporate memory must never escape the private network perimeter.
-- **Continuous Compliance & Auditability**: Under regulations like the **EU AI Act (Art. 12 & 14)**, **SOC 2 Type II**, and **ISO/IEC 25059**, any breach or tampering with the underlying storage layer voids the factory's cryptographic proof-of-lineage.
+- **Auditability & Traceability**: Designed to facilitate auditing and preserve cryptographic proof-of-lineage across the underlying storage layer.
 
 Therefore, this repository is actively maintained to remediate security flaws, patch critical vulnerabilities, eliminate external third-party download dependencies, and provide robust CI/CD container builds tailored for production Kubernetes and MicroK8s environments.
 
@@ -34,7 +34,7 @@ graph TD
     subgraph "Dark Gravity Rust Factory Core"
         HATCHET["Hatchet DAG Engine<br/>(Crash Resilience)"] -->|BridgeState Checkpoints| B_CHECK["dg-factory-checkpoints"]
         ZERO_CLAW["ZeroClaw / Rustant<br/>(Code Execution)"] -->|Spec-Kit & Code Artifacts| B_ART["factory-artifacts"]
-        DOC_AGENT["Documentation Agent<br/>(DocAgent)"] -->|Hazitek / SPRI / EU AI Act| B_COMP["factory-artifacts/compliance/"]
+        DOC_AGENT["Documentation Agent<br/>(DocAgent)"] -->|Audit & Traceability Reports| B_COMP["factory-artifacts/compliance/"]
         SEMANTICA["Semantica-AGI<br/>(Causal Graph)"] -->|Ontological Lineage Snapshots| B_SEM["semantica-provenance"]
         R2R["R2R GraphRAG<br/>(Open Knowledge Format)"] -->|Research Nodes & OKF Docs| B_R2R["r2r-documents"]
         MLFLOW["MLflow Tracking Server"] -->|Model Weights & Partitions| B_MLF["mlflow"]
@@ -53,7 +53,7 @@ graph TD
 * **Subsystem Dependencies**:
   1. **Hatchet Orchestrator Engine (`dg-factory-checkpoints`)**: Persists durable `BridgeState` step checkpoints. If an autonomous worker crashes or reaches gVisor memory limits (≤ 30 MiB), the worker immediately resumes from the last completed task in MinIO, preventing duplicate LLM prompt calls and eliminating token budget waste.
   2. **Semantica-AGI Causal Governance (`semantica-provenance`)**: Persists immutable snapshots of the causal decision graph, linking business requirements and GitLab/GitHub issues down to exact Abstract Syntax Tree (AST) line mutations.
-  3. **R&D Compliance Packager (`factory-artifacts/compliance/`)**: Stores telemetry and auditable reports (compute core-hours, LiteLLM token spend, AST diff statistics, and Orphan Symbol Rate (OSR) metrics) formatted for **Hazitek, SPRI, and EU AI Act** audits.
+  3. **R&D Compliance Packager (`factory-artifacts/compliance/`)**: Stores telemetry and auditable reports (compute core-hours, LiteLLM token spend, AST diff statistics, and Orphan Symbol Rate (OSR) metrics) formatted to facilitate technical auditing and traceability reviews.
   4. **R2R GraphRAG Corporate Memory (`r2r-documents`)**: Serves as the raw backing store for research nodes, Tavily web scrape outputs, and Google Open Knowledge Format (OKF) Markdown files.
   5. **MLflow Tracking Server (`mlflow`)**: Stores trained machine learning weights, dataset partitions, and experiment artifacts.
 
@@ -62,7 +62,7 @@ graph TD
 ### 3. Critical Security Mechanisms Enforced
 
 To protect the factory against compromise, the following defenses are strictly enforced:
-- **Zero-Trust Path Traversal & Injection Defense**: In `factory-mcp-server`, MinIO object inspection tools enforce strict bucket whitelisting (`factory-artifacts`, `doc-agent-telemetry`, `r2r-documents`, `semantica-provenance`) and reject relative path sequences (`..` or `/`) to prevent path traversal and data exfiltration.
+- **Strict Path Whitelisting & Traversal Defense**: In `factory-mcp-server`, MinIO object inspection tools enforce strict bucket whitelisting (`factory-artifacts`, `doc-agent-telemetry`, `r2r-documents`, `semantica-provenance`) and reject relative path sequences (`..` or `/`) to prevent path traversal and data exfiltration.
 - **Cryptographic Provenance (NHI Verifiable Credentials)**: Every artifact and code modification is cryptographically signed by Non-Human Identities (NHI) using **W3C Verifiable Credentials** with **Ed25519** keys and deterministic BLAKE3/SHA-256 hashes. Tampering with any stored object in MinIO triggers immediate hash mismatch alerts and trips the Aethelgard SAST circuit breaker.
 - **Automated Container Pipeline**: Fully automated multi-stage compilation using `golang:1.24-alpine` and lightweight Alpine 3.21 runtime, published to GHCR and the MicroK8s in-cluster registry (`localhost:32000`).
 
@@ -72,7 +72,7 @@ For MicroK8s deployment details, see **[MicroK8s Deployment Guide](docs/microk8s
 
 ### 4. Sovereign MinIO Ecosystem: Maintained Repositories in `@lgcorzo`
 
-To guarantee long-term sovereign support, full supply-chain independence, and continuous security patching for the Dark Gravity factory and production environments, the complete MinIO ecosystem of 38 servers, clients, storage drivers, acceleration libraries, and core dependencies has been preserved and actively maintained under **`@lgcorzo`**:
+To support long-term maintenance, supply-chain continuity, and continuous security patching for the Dark Gravity factory and production environments, the complete MinIO ecosystem of 38 servers, clients, storage drivers, acceleration libraries, and core dependencies has been preserved and actively maintained under **`@lgcorzo`**:
 
 | Category | Repository | Description | Key Capabilities |
 | :--- | :--- | :--- | :--- |
@@ -88,7 +88,7 @@ To guarantee long-term sovereign support, full supply-chain independence, and co
 | | [`lgcorzo/madmin-go`](https://github.com/lgcorzo/madmin-go) | MinIO Admin Go Library | Administrative APIs for server configuration, user management, healing, and decommissioning |
 | | [`lgcorzo/kms-go`](https://github.com/lgcorzo/kms-go) | Cryptographic KMS Client Library | Go client primitives for key creation, DEK derivation, and envelope encryption via KES |
 | | [`lgcorzo/pkg`](https://github.com/lgcorzo/pkg) | Common Go Utility Packages | Cryptographic certificates, hashing routines, and shared helper primitives |
-| | [`lgcorzo/mtls`](https://github.com/lgcorzo/mtls) | Mutual TLS Utilities | Zero-trust inter-node cryptographic identity verification and mTLS configuration |
+| | [`lgcorzo/mtls`](https://github.com/lgcorzo/mtls) | Mutual TLS Utilities | Inter-node certificate identity verification and mTLS configuration |
 | **Hardware & SIMD Acceleration** | [`lgcorzo/sha256-simd`](https://github.com/lgcorzo/sha256-simd) | SIMD-Accelerated SHA256 | AVX-512 and ARMv8 Crypto Extensions SHA256 acceleration (up to 100x speedup) |
 | | [`lgcorzo/md5-simd`](https://github.com/lgcorzo/md5-simd) | SIMD-Accelerated MD5 | Parallel AVX-512 and AVX2 MD5 calculation (up to 8x acceleration) |
 | | [`lgcorzo/blake2b-simd`](https://github.com/lgcorzo/blake2b-simd) | SIMD-Accelerated BLAKE2b | Pure Go cryptographic hashing leveraging AVX2/AVX512/SSSE3 vector instructions |
@@ -119,7 +119,7 @@ To guarantee long-term sovereign support, full supply-chain independence, and co
 
 ### 5. Sovereign Maintenance & Long-Term Support Plan in GitHub
 
-To preserve long-term operational resilience, supply-chain autonomy, and enterprise security compliance (EU AI Act, SOC 2 Type II, ISO 25059) without upstream commercial lock-in, all 38 repositories are managed under a structured maintenance protocol:
+To preserve long-term operational resilience, supply-chain autonomy, and audit/traceability readiness without upstream commercial lock-in, all 38 repositories are managed under a structured maintenance protocol:
 
 ```mermaid
 flowchart TD
@@ -368,3 +368,10 @@ Please follow MinIO [Contributor's Guide](https://github.com/lgcorzo/minio/blob/
 - MinIO source is licensed under the [GNU AGPLv3](https://github.com/lgcorzo/minio/blob/master/LICENSE).
 - MinIO [documentation](https://github.com/lgcorzo/minio/tree/master/docs) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - [License Compliance](https://github.com/lgcorzo/minio/blob/master/COMPLIANCE.md)
+
+---
+
+### Fork Maintenance & Agent Transparency
+
+- **Changes vs. Upstream:** Security dependency updates, CI/CD workflow fixes, and CodeQL remediation are tracked in the [commit history](../../commits) and [Pull Requests](../../pulls?q=is%3Apr).
+- **Agent Tagging (`[agent]`):** Commits and pull requests generated automatically by agents in the Dark Gravity pipeline are prefixed with `[agent]` to distinguish automated maintenance from manual work.
