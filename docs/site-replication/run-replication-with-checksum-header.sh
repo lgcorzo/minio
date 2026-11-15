@@ -89,7 +89,7 @@ echo -n "Preparing test data ..."
 mkdir -p /tmp/data
 echo "Hello World" >/tmp/data/obj
 touch /tmp/data/mpartobj
-shred -s 500M /tmp/data/mpartobj
+truncate -s 500M /tmp/data/mpartobj
 echo "done"
 
 # Add replication site

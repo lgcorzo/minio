@@ -1939,10 +1939,12 @@ func (api objectAPIHandlers) PutObjectHandler(w http.ResponseWriter, r *http.Req
 	}
 
 	// Check if bucket encryption is enabled
-	sseConfig, _ := globalBucketSSEConfigSys.Get(bucket)
-	sseConfig.Apply(r.Header, sse.ApplyOptions{
-		AutoEncrypt: globalAutoEncryption,
-	})
+	if r.Header.Get(xhttp.MinIOSourceReplicationRequest) != "true" || !crypto.SSEC.IsEncrypted(metadata) {
+		sseConfig, _ := globalBucketSSEConfigSys.Get(bucket)
+		sseConfig.Apply(r.Header, sse.ApplyOptions{
+			AutoEncrypt: globalAutoEncryption,
+		})
+	}
 
 	var reader io.Reader
 	reader = rd
