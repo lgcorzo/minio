@@ -1,3 +1,5 @@
+Maintained fork of [minio/minio](https://github.com/minio/minio) (archived upstream). It applies security patches and maintenance fixes on top of upstream. Part of the [Dark Gravity](https://github.com/lgcorzo/rust_CACD_autonomous_factory) factory. License: AGPLv3.
+
 > [!NOTE]
 > **UPSTREAM STATUS & FORK PURPOSE:**
 > While upstream MinIO has archived the open-source community edition in favor of proprietary AIStor, this repository is **actively maintained and hardened** as an essential infrastructure component of the **[Dark Gravity Autonomous CA/CD Factory](https://github.com/lgcorzo/rust_CACD_autonomous_factory)**. Ongoing security patches, multi-stage container builds, and supply-chain integrity checks are continuously integrated to safeguard the autonomous software delivery lifecycle.
