@@ -64,9 +64,9 @@ mkdir -p /tmp/data
 echo "Hello world" >/tmp/data/plainfile
 echo "Hello from encrypted world" >/tmp/data/encrypted
 touch /tmp/data/defpartsize
-shred -s 500M /tmp/data/defpartsize
+truncate -s 500M /tmp/data/defpartsize
 touch /tmp/data/custpartsize
-shred -s 500M /tmp/data/custpartsize
+truncate -s 500M /tmp/data/custpartsize
 echo "done"
 
 # Add replication site
