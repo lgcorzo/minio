@@ -316,7 +316,7 @@ func (api objectAPIHandlers) CopyObjectPartHandler(w http.ResponseWriter, r *htt
 	partIDString := r.Form.Get(xhttp.PartNumber)
 
 	partID, err := strconv.Atoi(partIDString)
-	if err != nil || partID <= 0 || partID > math.MaxUint32 {
+	if err != nil || partID <= 0 || partID > math.MaxInt32 {
 		writeErrorResponse(ctx, w, errorCodes.ToAPIErr(ErrInvalidPart), r.URL)
 		return
 	}
@@ -649,7 +649,7 @@ func (api objectAPIHandlers) PutObjectPartHandler(w http.ResponseWriter, r *http
 	partIDString := r.Form.Get(xhttp.PartNumber)
 
 	partID, err := strconv.Atoi(partIDString)
-	if err != nil || partID <= 0 || partID > math.MaxUint32 {
+	if err != nil || partID <= 0 || partID > math.MaxInt32 {
 		writeErrorResponse(ctx, w, errorCodes.ToAPIErr(ErrInvalidPart), r.URL)
 		return
 	}
